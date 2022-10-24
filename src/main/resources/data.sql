@@ -1,0 +1,1 @@
+Insert into subscriber(email) VALUES  ('chiperialin@yahoo.com');
