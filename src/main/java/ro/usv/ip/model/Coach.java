@@ -4,31 +4,25 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
-import java.time.LocalDate;
-
 
 @Getter
 @Setter
-@Table
 @Entity
-public class Player {
+@Table
+public class Coach {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
     private String firstName;
     private String lastName;
-
-    private LocalDate dob;
-
-    private float height;
-
-    private int shirtNumber;
 
     @Lob
     @Column(name = "photo", columnDefinition = "BLOB")
     private byte[] photo;
 
-    private String category;
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "team_id")
+    private Team team;
+
 
 }
