@@ -13,7 +13,6 @@ import java.util.stream.Collectors;
 public class PostDto {
     private Long id;
     private String title;
-    private List<PostCommentDto> comments;
     private PostDetailsDto details;
     private List<TagDto> tags;
 
@@ -27,9 +26,7 @@ public class PostDto {
                 .tags(post.getTags().stream()
                         .map(TagDto::from)
                         .collect(Collectors.toList()))
-                .comments(post.getComments().stream()
-                        .map(PostCommentDto::from)
-                        .collect(Collectors.toList()))
+
                 .build();
     }
 }
