@@ -30,5 +30,8 @@ public class Player {
     private byte[] photo;
 
     private String category;
+    private String nationality;
+    private String description;
+
 
 }

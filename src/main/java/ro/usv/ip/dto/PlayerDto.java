@@ -18,6 +18,8 @@ public class PlayerDto {
     private int shirtNumber;
     private String category;
     private byte[] photo;
+    private String nationality;
+    private String description;
 
     public static PlayerDto from (Player player){
         return PlayerDto.builder()
@@ -29,6 +31,8 @@ public class PlayerDto {
                 .shirtNumber(player.getShirtNumber())
                 .photo(player.getPhoto())
                 .category(player.getCategory())
+                .nationality(player.getNationality())
+                .description(player.getDescription())
                 .build();
     }
 }
