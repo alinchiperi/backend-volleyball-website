@@ -14,7 +14,7 @@ public class CoachDto {
     private String lastName;
     private byte[] photo;
 
-    public CoachDto from (Coach coach){
+    public static CoachDto from (Coach coach){
         return CoachDto.builder()
                 .id(coach.getId())
                 .firstName(coach.getFirstName())

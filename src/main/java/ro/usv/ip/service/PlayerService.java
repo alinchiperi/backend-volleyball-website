@@ -47,9 +47,9 @@ public class PlayerService {
     }
 
     public PlayerDto deletePlayer(Long id) {
-        Optional<Player> player = playerRepository.findById(id);
-        playerRepository.delete(player.get());
-        return player.map(PlayerDto::from).orElse(null);
+        Player player = playerRepository.findById(id).orElseThrow(()->new PlayerNotFoundException(id));
+        playerRepository.delete(player);
+        return PlayerDto.from(player);
     }
 
     public PlayerDto updatePlayer(PlayerDto playerDto) {

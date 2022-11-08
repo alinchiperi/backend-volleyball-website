@@ -1,14 +1,20 @@
 package ro.usv.ip.model;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
 
 @Getter
 @Setter
-@Entity
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 @Table
+@Entity
 public class Coach {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
