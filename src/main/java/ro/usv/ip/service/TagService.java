@@ -7,6 +7,7 @@ import ro.usv.ip.exceptions.TagNotFoundException;
 import ro.usv.ip.model.Tag;
 import ro.usv.ip.repository.TagRepository;
 
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
@@ -22,6 +23,7 @@ public class TagService {
     }
 
     public List<Tag> tagsFrom(List<TagDto> tags) {
+
         List<TagDto> tagDtos = Optional.ofNullable(tags).orElse(Collections.emptyList());
         return tagDtos.stream().map(this::toTag).collect(Collectors.toList());
     }

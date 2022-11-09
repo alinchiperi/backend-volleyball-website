@@ -12,7 +12,7 @@ import ro.usv.ip.dto.PostDto;
 import ro.usv.ip.service.PostService;
 
 @RestController
-@RequestMapping("/api/posts")
+@RequestMapping("/api/post")
 @CrossOrigin(origins = {""})
 public class PostController {
     private final PostService postService;
@@ -22,7 +22,7 @@ public class PostController {
     }
 
     @PostMapping("/create")
-    public PostDto createPost(@RequestBody NewPostDto postDto) {
+    public PostDto createPost(@RequestBody PostDto postDto) {
         return postService.create(postDto);
     }
     @DeleteMapping("/delete/{id}")

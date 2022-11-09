@@ -4,6 +4,7 @@ import lombok.Builder;
 import lombok.Data;
 import ro.usv.ip.model.Post;
 
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -13,20 +14,19 @@ import java.util.stream.Collectors;
 public class PostDto {
     private Long id;
     private String title;
-    private PostDetailsDto details;
     private List<TagDto> tags;
+    private LocalDateTime createdOn;
+    private String content;
+    private String createdBy;
 
     public static PostDto from(Post post) {
         return PostDto.builder()
                 .id(post.getId())
                 .title(post.getTitle())
-                .details(Optional.ofNullable(post.getDetails())
-                        .map(PostDetailsDto::from)
-                        .orElse(null))
                 .tags(post.getTags().stream()
                         .map(TagDto::from)
                         .collect(Collectors.toList()))
-
+                .content(post.getContent())
                 .build();
     }
 }
