@@ -30,7 +30,7 @@ public class Post {
     private String underTitle;
 
     @Lob
-    @Column(name = "content", columnDefinition = "CLOB")
+    @Column(name = "content", columnDefinition = "TEXT")
     private String content;
 
     @Lob

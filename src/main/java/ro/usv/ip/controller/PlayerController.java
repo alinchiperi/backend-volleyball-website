@@ -29,7 +29,7 @@ public class PlayerController {
         return playerService.addPlayer(playerDto);
     }
 
-    @GetMapping("")
+    @GetMapping("/players")
     public List<PlayerDto> getPlayers() {
         return playerService.getPlayers();
     }
