@@ -1,6 +1,9 @@
 package ro.usv.ip.model;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.Entity;
@@ -12,6 +15,8 @@ import java.util.Objects;
 @Getter
 @Setter
 @Entity
+@Builder
+@NoArgsConstructor
 @Table(name = "tag")
 public class Tag {
     @Id
