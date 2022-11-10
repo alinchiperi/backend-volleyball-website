@@ -52,6 +52,7 @@ public class PostService {
         Post post = new Post();
         post.setTitle(title);
         post.setCreatedOn(LocalDateTime.now());
+
         return post;
     }
     public PostDto update(Long postId, NewPostDto postData) {
