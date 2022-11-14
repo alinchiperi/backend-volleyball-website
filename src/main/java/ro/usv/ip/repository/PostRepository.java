@@ -12,4 +12,7 @@ public interface PostRepository extends JpaRepository<Post, Long> {
 
     List<Post> findByTags_Name(String tagName);
 
+    @Query(value="SELECT * FROM post order by created_on ASC ", nativeQuery = true)
+    List<Post>findAllOrderByCreatedOnAsc();
+
 }
