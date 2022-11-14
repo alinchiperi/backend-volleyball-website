@@ -16,6 +16,7 @@ public class PostDto {
     private String title;
     private List<TagDto> tags;
     private LocalDateTime createdOn;
+    private String underTitle;
     private String content;
     private String createdBy;
 
@@ -27,6 +28,9 @@ public class PostDto {
                         .map(TagDto::from)
                         .collect(Collectors.toList()))
                 .content(post.getContent())
+                .underTitle(post.getUnderTitle())
+                .createdOn(post.getCreatedOn())
+                .createdBy(post.getCreatedBy())
                 .build();
     }
 }

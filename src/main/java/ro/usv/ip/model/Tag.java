@@ -5,6 +5,7 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import lombok.ToString;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -16,6 +17,7 @@ import java.util.Objects;
 @Setter
 @Entity
 @Builder
+@ToString
 @NoArgsConstructor
 @Table(name = "tag")
 public class Tag {
