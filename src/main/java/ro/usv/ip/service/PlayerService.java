@@ -98,4 +98,9 @@ public class PlayerService {
         player = playerRepository.save(player);
         return PlayerDto.from(player);
     }
+
+    public PlayerDto findPlayerById(Long id){
+        Player player = playerRepository.findById(id).orElseThrow(()-> new PlayerNotFoundException(id));
+        return PlayerDto.from(player);
+    }
 }
