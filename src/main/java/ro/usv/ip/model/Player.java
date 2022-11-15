@@ -32,7 +32,7 @@ public class Player {
     private int shirtNumber;
 
     @Lob
-    @Column(name = "photo", columnDefinition = "BLOB")
+    @Column(name = "photo", columnDefinition = "LONGBLOB")
     private byte[] photo;
 
     private String category;
