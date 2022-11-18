@@ -9,13 +9,19 @@ import ro.usv.ip.model.Player;
 import ro.usv.ip.repository.PlayerRepository;
 
 import javax.transaction.Transactional;
+import java.io.File;
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
+import org.apache.commons.io.FilenameUtils;
 
 @Service
 @RequiredArgsConstructor
 public class PlayerService {
+    private static String imageDirectory = "D:/Facultate/Anul IV/IP/proiect/backend/src/main/resources"+ "/images/players/";
     public final PlayerRepository playerRepository;
 
     public PlayerDto addPlayer(PlayerDto playerDto, MultipartFile file) {
@@ -36,6 +42,22 @@ public class PlayerService {
         }
 
         player = playerRepository.save(player);
+
+        /**This is for save image locally if blob isn't accepted */
+
+//        String playerImageName=String.valueOf(player.getId()).concat("-").concat(player.getFirstName());
+//
+//        String fileName= playerImageName.concat(".").concat(FilenameUtils.getExtension(file.getOriginalFilename()));
+//
+//
+//        makeDirectoryIfNotExist(imageDirectory);
+//        Path fileNamePath = Paths.get(imageDirectory,fileName);
+//
+//        try {
+//            Files.write(fileNamePath, file.getBytes());
+//        } catch (IOException e) {
+//            throw new RuntimeException(e);
+//        }
 
 
         return PlayerDto.from(player);
@@ -102,5 +124,17 @@ public class PlayerService {
     public PlayerDto findPlayerById(Long id){
         Player player = playerRepository.findById(id).orElseThrow(()-> new PlayerNotFoundException(id));
         return PlayerDto.from(player);
+    }
+
+    public byte[] getPlayerImage(Long id) {
+        Player player = playerRepository.findById(id).orElseThrow(()-> new PlayerNotFoundException(id));
+        return player.getPhoto();
+    }
+
+    private void makeDirectoryIfNotExist(String imageDirectory) {
+        File directory = new File(imageDirectory);
+        if (!directory.exists()) {
+            directory.mkdir();
+        }
     }
 }

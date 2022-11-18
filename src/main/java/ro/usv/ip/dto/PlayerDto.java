@@ -20,6 +20,7 @@ public class PlayerDto {
     private byte[] photo;
     private String nationality;
     private String description;
+    private String position;
 
     public static PlayerDto from (Player player){
         return PlayerDto.builder()
@@ -33,6 +34,7 @@ public class PlayerDto {
                 .category(player.getCategory())
                 .nationality(player.getNationality())
                 .description(player.getDescription())
+                .position(player.getPosition())
                 .build();
     }
 }
