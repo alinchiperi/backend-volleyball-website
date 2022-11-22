@@ -1,5 +1,6 @@
 package ro.usv.ip.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -38,6 +39,8 @@ public class Player {
     private String category;
     private String nationality;
     private String description;
+
+    private String position;
 
 
 }
