@@ -46,20 +46,19 @@ public class PlayerService {
 
         /**This is for save image locally if blob isn't accepted */
 
-//        String playerImageName = String.valueOf(player.getId()).concat("-").concat(player.getFirstName());
-//
-//        String fileName = playerImageName.concat(".").concat(FilenameUtils.getExtension(file.getOriginalFilename()));
-//
-//
-//        String directoryPath = makeDirectory();
-//        Path fileNamePath = Paths.get(directoryPath, fileName);
-//
-//        try {
-//            Files.write(fileNamePath, file.getBytes());
-//        } catch (IOException e) {
-//            throw new RuntimeException(e);
-//        }
+        String playerImageName = String.valueOf(player.getId()).concat("-").concat(player.getFirstName());
 
+        String fileName = playerImageName.concat(".").concat(FilenameUtils.getExtension(file.getOriginalFilename()));
+
+
+        String directoryPath = makeDirectory();
+        Path fileNamePath = Paths.get(directoryPath, fileName);
+
+        try {
+            Files.write(fileNamePath, file.getBytes());
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
 
         return PlayerDto.from(player);
 
@@ -91,7 +90,6 @@ public class PlayerService {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-
     }
 
     public List<PlayerDto> getPlayers() {
