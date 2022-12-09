@@ -1,3 +1,4 @@
+--Players
 INSERT INTO  player(first_name, last_name, height,shirt_number, position,nationality,category,dob,photo)
     VALUES ('Andrei','Sasu',186,6,'setter','romana', 'senior','1986-07-06',FILE_READ('src/main/resources/images/players/1-Andrei.jpeg'));
 INSERT INTO  player(first_name, last_name, height,shirt_number, position,nationality,category,dob,photo)
@@ -22,3 +23,5 @@ INSERT INTO  player(first_name, last_name, height,shirt_number, position,nationa
     VALUES ('Matei','Platon',185,12,'libero','romana', 'senior','2003-07-27',FILE_READ('src/main/resources/images/players/11-Matei.jpeg'));
 INSERT INTO  player(first_name, last_name, height,shirt_number, position,nationality,category,dob,photo)
     VALUES ('Andrei','Curic',173,15,'libero','romana', 'senior','2004-05-02',FILE_READ('src/main/resources/images/players/12-Andrei.jpeg'));
+
+INSERT INTO coach(first_name, last_name, photo) VALUES ('Tudor','Orasanu',FILE_READ('src/main/resources/images/coach/1-Tudor.jpg'))
