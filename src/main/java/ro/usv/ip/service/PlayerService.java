@@ -16,12 +16,13 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
+
 import org.apache.commons.io.FilenameUtils;
 
 @Service
 @RequiredArgsConstructor
 public class PlayerService {
-    private static String imageDirectory = "D:/Facultate/Anul IV/IP/proiect/backend/src/main/resources"+ "/images/players/";
+
     public final PlayerRepository playerRepository;
 
     public PlayerDto addPlayer(PlayerDto playerDto, MultipartFile file) {
@@ -31,12 +32,12 @@ public class PlayerService {
 
         //This is for profile picture.
         try {
-            byte[] byteOnjects = new byte[file.getBytes().length];
-            int i =0;
-            for (byte b: file.getBytes()) {
-                byteOnjects[i++]=b;
+            byte[] byteObjects = new byte[file.getBytes().length];
+            int i = 0;
+            for (byte b : file.getBytes()) {
+                byteObjects[i++] = b;
             }
-            player.setPhoto(byteOnjects);
+            player.setPhoto(byteObjects);
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
@@ -45,20 +46,19 @@ public class PlayerService {
 
         /**This is for save image locally if blob isn't accepted */
 
-//        String playerImageName=String.valueOf(player.getId()).concat("-").concat(player.getFirstName());
-//
-//        String fileName= playerImageName.concat(".").concat(FilenameUtils.getExtension(file.getOriginalFilename()));
-//
-//
-//        makeDirectoryIfNotExist(imageDirectory);
-//        Path fileNamePath = Paths.get(imageDirectory,fileName);
-//
-//        try {
-//            Files.write(fileNamePath, file.getBytes());
-//        } catch (IOException e) {
-//            throw new RuntimeException(e);
-//        }
+        String playerImageName = String.valueOf(player.getId()).concat("-").concat(player.getFirstName());
 
+        String fileName = playerImageName.concat(".").concat(FilenameUtils.getExtension(file.getOriginalFilename()));
+
+
+        String directoryPath = makeDirectory();
+        Path fileNamePath = Paths.get(directoryPath, fileName);
+
+        try {
+            Files.write(fileNamePath, file.getBytes());
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
 
         return PlayerDto.from(player);
 
@@ -81,16 +81,15 @@ public class PlayerService {
         Player player = playerRepository.findById(id).orElseThrow(() -> new PlayerNotFoundException(id));
         try {
             byte[] byteOnjects = new byte[file.getBytes().length];
-            int i =0;
-            for (byte b: file.getBytes()) {
-                byteOnjects[i++]=b;
+            int i = 0;
+            for (byte b : file.getBytes()) {
+                byteOnjects[i++] = b;
             }
             player.setPhoto(byteOnjects);
             playerRepository.save(player);
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-
     }
 
     public List<PlayerDto> getPlayers() {
@@ -121,20 +120,25 @@ public class PlayerService {
         return PlayerDto.from(player);
     }
 
-    public PlayerDto findPlayerById(Long id){
-        Player player = playerRepository.findById(id).orElseThrow(()-> new PlayerNotFoundException(id));
+    public PlayerDto findPlayerById(Long id) {
+        Player player = playerRepository.findById(id).orElseThrow(() -> new PlayerNotFoundException(id));
         return PlayerDto.from(player);
     }
 
     public byte[] getPlayerImage(Long id) {
-        Player player = playerRepository.findById(id).orElseThrow(()-> new PlayerNotFoundException(id));
+        Player player = playerRepository.findById(id).orElseThrow(() -> new PlayerNotFoundException(id));
         return player.getPhoto();
     }
 
-    private void makeDirectoryIfNotExist(String imageDirectory) {
-        File directory = new File(imageDirectory);
+    public String makeDirectory() {
+        Path currentPath = Paths.get(".");
+        Path absolutePath = currentPath.toAbsolutePath();
+        String imagePath = absolutePath + "/src/main/resources/images/players/";
+        File directory = new File(imagePath);
         if (!directory.exists()) {
             directory.mkdir();
         }
+
+        return imagePath;
     }
 }
