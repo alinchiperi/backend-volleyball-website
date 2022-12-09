@@ -2,6 +2,8 @@ package ro.usv.ip.service;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 import ro.usv.ip.dto.PostDto;
@@ -12,12 +14,10 @@ import ro.usv.ip.model.Tag;
 import ro.usv.ip.repository.PostImageRepository;
 import ro.usv.ip.repository.PostRepository;
 
-import java.io.File;
 import java.io.IOException;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 
@@ -25,6 +25,7 @@ import java.util.List;
 @Slf4j
 @RequiredArgsConstructor
 public class PostService {
+    Logger logger = LoggerFactory.getLogger(PostService.class);
     private final PostRepository postRepository;
     private final PostImageRepository postImageRepository;
     private final TagService tagService;
@@ -103,8 +104,9 @@ public class PostService {
         return changePostToDto(posts);
 
     }
-    public void saveImagesInDataBase(Long postId,  MultipartFile[] files){
-        List<PostImage> imageList= new ArrayList<>();
+
+    public void saveImagesInDataBase(Long postId, MultipartFile[] files) {
+        List<PostImage> imageList = new ArrayList<>();
         Post post = postRepository.findById(postId).orElseThrow(() -> new PostNotFoundException(postId));
 
         for (MultipartFile file : files) {
@@ -131,7 +133,21 @@ public class PostService {
 
     }
 
+    public List<byte[]> getPostImages(Long postId) {
 
+        Post post = postRepository.findById(postId).orElseThrow(() -> new PostNotFoundException(postId));
+        List<byte[]> images= new ArrayList<>();
+
+        List<PostImage> postImages = post.getPostImage();
+
+//        logger.info("Post image: "+ Arrays.toString(new List[]{postImages}));
+
+        for (PostImage img: postImages){
+            images.add(img.getPhoto());
+        }
+
+        return images;
+    }
 
 
     //for local save

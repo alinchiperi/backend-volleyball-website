@@ -11,11 +11,13 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RequestPart;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 import ro.usv.ip.dto.PostDto;
 import ro.usv.ip.service.PostService;
 
+import java.io.IOException;
 import java.util.List;
 
 @RestController
@@ -28,12 +30,12 @@ public class PostController {
         this.postService = postService;
     }
 
-    @PostMapping(value="/create", consumes = {
+    @PostMapping(value = "/create", consumes = {
             MediaType.APPLICATION_JSON_VALUE,
             MediaType.MULTIPART_FORM_DATA_VALUE
     })
     public void createPost(@RequestPart("post") PostDto postDto, @RequestParam("images") MultipartFile[] files) {
-       postService.create(postDto, files);
+        postService.create(postDto, files);
     }
 
     @DeleteMapping("/delete/{id}")
@@ -61,5 +63,10 @@ public class PostController {
         return postService.getPostsOrderByDate();
     }
 
-
+    @GetMapping(
+            value = "/{postId}/images"
+    )
+    public List<byte[]> getPostImage(@PathVariable Long postId) {
+        return postService.getPostImages(postId);
+    }
 }
