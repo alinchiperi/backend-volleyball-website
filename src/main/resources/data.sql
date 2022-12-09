@@ -24,4 +24,8 @@ INSERT INTO  player(first_name, last_name, height,shirt_number, position,nationa
 INSERT INTO  player(first_name, last_name, height,shirt_number, position,nationality,category,dob,photo)
     VALUES ('Andrei','Curic',173,15,'libero','romana', 'senior','2004-05-02',FILE_READ('src/main/resources/images/players/12-Andrei.jpeg'));
 
-INSERT INTO coach(first_name, last_name, photo) VALUES ('Tudor','Orasanu',FILE_READ('src/main/resources/images/coach/1-Tudor.jpg'))
+INSERT INTO coach(first_name, last_name, photo) VALUES ('Tudor','Orasanu',FILE_READ('src/main/resources/images/coach/1-Tudor.jpg'));
+
+INSERT INTO sponsor(name,site_link,logo) VALUES ('Assist Software', 'https://assist-software.net/', FILE_READ('src/main/resources/images/sponsors/1-Assist.jpeg'));
+INSERT INTO sponsor(name,site_link,logo) VALUES ('Tipografia Celestin', 'https://www.tipografiacelestin.ro/', FILE_READ('src/main/resources/images/sponsors/2-Celestin.jpeg'));
+INSERT INTO sponsor(name,site_link,logo) VALUES ('Primaria Suceava', 'http://evp.primariasv.ro/dm_suceava/site.nsf', FILE_READ('src/main/resources/images/sponsors/3-Suceava.png'));

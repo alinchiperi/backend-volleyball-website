@@ -33,7 +33,7 @@ public class PlayerController {
             MediaType.APPLICATION_JSON_VALUE,
             MediaType.MULTIPART_FORM_DATA_VALUE
     })
-    public PlayerDto addPlayer(@RequestPart("player") PlayerDto playerDto, @RequestParam("imagefile")MultipartFile file) {
+    public PlayerDto addPlayer(@RequestPart("player") PlayerDto playerDto, @RequestParam("imagefile") MultipartFile file) {
         return playerService.addPlayer(playerDto, file);
     }
 
@@ -44,22 +44,22 @@ public class PlayerController {
 
     @DeleteMapping(value = "/{id}")
     public ResponseEntity<PlayerDto> deletePlayer(@PathVariable Long id) {
-
         return ResponseEntity.ok().body(playerService.deletePlayer(id));
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<PlayerDto> getPlayerById(@PathVariable Long id){
+    public ResponseEntity<PlayerDto> getPlayerById(@PathVariable Long id) {
         return ResponseEntity.ok().body(playerService.findPlayerById(id));
     }
+
     @PutMapping("")
-    public PlayerDto updatePlayer(@RequestBody PlayerDto playerDto){
+    public PlayerDto updatePlayer(@RequestBody PlayerDto playerDto) {
         return playerService.updatePlayer(playerDto);
     }
 
     @PostMapping("/{id}/update/picture")
-    public void updatePlayerPicture(@PathVariable("id") Long id, @RequestParam("imagefile") MultipartFile file ){
-        playerService.updateProfileImage(id,file);
+    public void updatePlayerPicture(@PathVariable("id") Long id, @RequestParam("imagefile") MultipartFile file) {
+        playerService.updateProfileImage(id, file);
     }
 
     @GetMapping(
@@ -67,6 +67,6 @@ public class PlayerController {
             produces = MediaType.IMAGE_JPEG_VALUE
     )
     public @ResponseBody byte[] getPlayerImage(@PathVariable Long id) throws IOException {
-       return playerService.getPlayerImage(id);
+        return playerService.getPlayerImage(id);
     }
 }
