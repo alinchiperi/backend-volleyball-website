@@ -69,7 +69,7 @@ public class CoachService {
         coach.setFirstName(coachDto.getFirstName());
         coach.setLastName(coachDto.getLastName());
 
-        // TODO: 07.11.2022 coach.setPhoto
+
 
         //toDO: find team id by name and add here
         coach = coachRepository.save(coach);
