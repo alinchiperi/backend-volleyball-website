@@ -11,13 +11,11 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RequestPart;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 import ro.usv.ip.dto.PostDto;
 import ro.usv.ip.service.PostService;
 
-import java.io.IOException;
 import java.util.List;
 
 @RestController
@@ -53,9 +51,9 @@ public class PostController {
         return postService.findPostById(id);
     }
 
-    @PutMapping("/update/{id}")
-    public PostDto update(@PathVariable Long id, @RequestBody PostDto postDto) {
-        return postService.update(id, postDto);
+    @PutMapping("/update")
+    public PostDto update(@RequestBody PostDto postDto) {
+        return postService.update(postDto);
     }
 
     @GetMapping("/posts")

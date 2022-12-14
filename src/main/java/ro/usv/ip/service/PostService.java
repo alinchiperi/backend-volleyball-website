@@ -62,7 +62,8 @@ public class PostService {
         return changePostToDto(posts);
     }
 
-    public PostDto update(Long postId, PostDto postDto) {
+    public PostDto update( PostDto postDto) {
+        long postId = postDto.getId();
         Post post = postRepository.findById(postId)
                 .orElseThrow(() -> new PostNotFoundException(postId));
         List<Tag> tags = tagService.tagsFrom(postDto.getTags());

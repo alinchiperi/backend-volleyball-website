@@ -57,7 +57,7 @@ public class PlayerController {
         return playerService.updatePlayer(playerDto);
     }
 
-    @PostMapping("/{id}/update/image")
+    @PutMapping("/{id}/update/image")
     public void updatePlayerPicture(@PathVariable("id") Long id, @RequestParam("imagefile") MultipartFile file) {
         playerService.updateProfileImage(id, file);
     }
