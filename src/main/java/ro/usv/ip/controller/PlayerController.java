@@ -69,4 +69,9 @@ public class PlayerController {
     public @ResponseBody byte[] getPlayerImage(@PathVariable Long id) throws IOException {
         return playerService.getPlayerImage(id);
     }
+
+    @GetMapping("/category")
+    public List<PlayerDto> getPlayersByCategory(@RequestParam String category){
+        return playerService.getPlayerByCategory(category);
+    }
 }

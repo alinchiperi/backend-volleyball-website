@@ -29,6 +29,7 @@ public class Player {
     private LocalDate dob;
 
     private float height;
+//    private float weight;
 
     private int shirtNumber;
 
@@ -38,6 +39,7 @@ public class Player {
 
     private String category;
     private String nationality;
+    private String title;
     private String description;
 
     private String position;

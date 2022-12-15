@@ -31,7 +31,7 @@ public class PostService {
     private final TagService tagService;
 
 
-    public void create(PostDto postDto, MultipartFile[] files) {
+    public PostDto create(PostDto postDto, MultipartFile[] files) {
         List<Tag> tags = tagService.tagsFrom(postDto.getTags());
 
         Post post = postFor(postDto.getTitle(), tags);
@@ -44,6 +44,7 @@ public class PostService {
 
         saveImagesInDataBase(result.getId(), files);
 
+        return PostDto.from(result);
     }
 
 
