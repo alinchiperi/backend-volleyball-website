@@ -37,7 +37,7 @@ public class PlayerControllerTests {
 
         given(playerService.findPlayerById(playerId)).willReturn(PlayerDto.from(player));
 
-        mockMvc.perform(get("/api/player/" + player.getId()))
+        mockMvc.perform(get("/api/player/" + playerId))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("id").value(playerId))
                 .andExpect(jsonPath("firstName").value("Alin"))

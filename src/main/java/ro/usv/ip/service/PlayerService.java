@@ -141,4 +141,14 @@ public class PlayerService {
 
         return imagePath;
     }
+
+    public List<PlayerDto> getPlayerByCategory(String category) {
+        List<Player> playersByCategory = playerRepository.getPlayerByCategory(category);
+        List<PlayerDto>playerDtos = new ArrayList<>();
+        for (Player pl :
+                playersByCategory) {
+            playerDtos.add(PlayerDto.from(pl));
+        }
+        return playerDtos;
+    }
 }
