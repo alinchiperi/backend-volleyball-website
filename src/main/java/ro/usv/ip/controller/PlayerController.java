@@ -16,7 +16,9 @@ import org.springframework.web.bind.annotation.RequestPart;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
+import ro.usv.ip.dto.PlayerDetailsDto;
 import ro.usv.ip.dto.PlayerDto;
+import ro.usv.ip.dto.PlayerStatisticDto;
 import ro.usv.ip.service.PlayerService;
 
 import java.io.IOException;
@@ -71,7 +73,22 @@ public class PlayerController {
     }
 
     @GetMapping("/category")
-    public List<PlayerDto> getPlayersByCategory(@RequestParam String category){
+    public List<PlayerDto> getPlayersByCategory(@RequestParam String category) {
         return playerService.getPlayerByCategory(category);
+    }
+
+    @PostMapping("/statistic")
+    public void postPlayerStatistic(@RequestBody PlayerStatisticDto playerStatisticDto) {
+        playerService.addPlayerStatistic(playerStatisticDto);
+    }
+
+    @GetMapping("/statistic/{id}")
+    public ResponseEntity<PlayerStatisticDto> getPlayerStatistic(@PathVariable Long id) {
+        return ResponseEntity.ok().body(playerService.getPlayerStatistic(id));
+    }
+
+    @GetMapping("/{id}/details")
+    public ResponseEntity<PlayerDetailsDto> getAllPlayerData(@PathVariable Long id){
+        return ResponseEntity.ok().body(playerService.getAllPlayerData(id));
     }
 }

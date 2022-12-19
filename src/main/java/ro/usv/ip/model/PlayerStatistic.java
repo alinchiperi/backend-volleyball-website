@@ -19,7 +19,7 @@ public class PlayerStatistic {
     private Integer aces;
 
     @OneToOne
-    @MapsId
+    @MapsId  // this if player statistic should have same id as player
     @JoinColumn(name = "player_id", referencedColumnName = "id")
     private Player player;
 

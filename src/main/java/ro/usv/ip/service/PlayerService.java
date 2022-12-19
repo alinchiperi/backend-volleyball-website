@@ -1,12 +1,17 @@
 package ro.usv.ip.service;
 
 import lombok.RequiredArgsConstructor;
+import org.apache.commons.io.FilenameUtils;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
+import ro.usv.ip.dto.PlayerDetailsDto;
 import ro.usv.ip.dto.PlayerDto;
+import ro.usv.ip.dto.PlayerStatisticDto;
 import ro.usv.ip.exceptions.PlayerNotFoundException;
 import ro.usv.ip.model.Player;
+import ro.usv.ip.model.PlayerStatistic;
 import ro.usv.ip.repository.PlayerRepository;
+import ro.usv.ip.repository.PlayerStatisticRepository;
 
 import javax.transaction.Transactional;
 import java.io.File;
@@ -17,13 +22,12 @@ import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.apache.commons.io.FilenameUtils;
-
 @Service
 @RequiredArgsConstructor
 public class PlayerService {
 
     public final PlayerRepository playerRepository;
+    public final PlayerStatisticRepository playerStatisticRepository;
 
     public PlayerDto addPlayer(PlayerDto playerDto, MultipartFile file) {
         Player player = new Player();
@@ -144,11 +148,39 @@ public class PlayerService {
 
     public List<PlayerDto> getPlayerByCategory(String category) {
         List<Player> playersByCategory = playerRepository.getPlayerByCategory(category);
-        List<PlayerDto>playerDtos = new ArrayList<>();
+        List<PlayerDto> playerDtos = new ArrayList<>();
         for (Player pl :
                 playersByCategory) {
             playerDtos.add(PlayerDto.from(pl));
         }
         return playerDtos;
+    }
+
+    public void addPlayerStatistic(PlayerStatisticDto playerStatisticDto) {
+
+        Long playerId = playerStatisticDto.getPlayerId();
+        PlayerStatistic playerStatistic = new PlayerStatistic();
+        Player player = playerRepository.findById(playerId).orElseThrow(() -> new PlayerNotFoundException(playerId));
+
+        playerStatistic.setAces(playerStatisticDto.getAces());
+        playerStatistic.setAttacks(playerStatisticDto.getAttacks());
+        playerStatistic.setBlocks(playerStatisticDto.getBlocks());
+        playerStatistic.setPlayer(player);
+
+        playerStatisticRepository.save(playerStatistic);
+
+    }
+
+    public PlayerStatisticDto getPlayerStatistic(Long playerId) {
+        PlayerStatistic playerStatistic = playerStatisticRepository.findByPlayerId(playerId);
+
+        return PlayerStatisticDto.from(playerStatistic);
+    }
+
+    public PlayerDetailsDto getAllPlayerData(Long playerId){
+        Player player = playerRepository.findById(playerId).orElseThrow(()->new PlayerNotFoundException(playerId));
+        PlayerStatistic playerStatistic = playerStatisticRepository.findByPlayerId(playerId);
+
+        return PlayerDetailsDto.from(player, playerStatistic);
     }
 }
