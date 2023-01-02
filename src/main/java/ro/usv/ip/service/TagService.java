@@ -31,10 +31,7 @@ public class TagService {
     private Tag toTag(TagDto tagDto) {
         Tag tag;
         Optional<Tag> tagFromName = tagRepository.findByName(tagDto.getName());
-        if (tagDto.getId() != null) {
-            tag = tagRepository.findById(tagDto.getId())
-                    .orElseThrow(() -> new TagNotFoundException(tagDto.getId()));
-        } else if(tagFromName.isPresent()) {
+         if(tagFromName.isPresent()) {
             tag=tagFromName.get();
         }
         else {

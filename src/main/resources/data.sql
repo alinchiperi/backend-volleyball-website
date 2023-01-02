@@ -35,9 +35,9 @@ INSERT INTO subscriber(email) values ('alin.chiperi@student.usv.ro');
 INSERT INTO subscriber(email) values ('stefan.bejinariu@student.usv.ro');
 INSERT INTO subscriber(email) values ('stefan.taranu@student.usv.ro');
 
-INSERT INTO tag (id, name) values (1,'CSM');
-INSERT INTO tag (id, name) values (2,'Volei');
-INSERT INTO tag (id, name) values (3,'Suceava');
+INSERT INTO tag ( name) values ('CSM');
+INSERT INTO tag ( name) values ('Volei');
+INSERT INTO tag ( name) values ('Suceava');
 INSERT INTO post(title, under_title, created_by ,content, created_on) values ('Csm Campioana','Echipa de volei a Sucevei a castigat campionatul','Alin Chiperi','Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Eget est lorem ipsum dolor sit. Tortor id aliquet lectus proin.', '2022-12-21');
 
 INSERT INTO post_tag(post_id, tag_id) values (1,1);
