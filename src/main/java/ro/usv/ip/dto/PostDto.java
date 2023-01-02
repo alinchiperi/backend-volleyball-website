@@ -19,6 +19,7 @@ public class PostDto {
     private String underTitle;
     private String content;
     private String createdBy;
+    private String link;
 
     public static PostDto from(Post post) {
         return PostDto.builder()
@@ -31,6 +32,7 @@ public class PostDto {
                 .underTitle(post.getUnderTitle())
                 .createdOn(post.getCreatedOn())
                 .createdBy(post.getCreatedBy())
+                .link(post.getLink())
                 .build();
     }
 }
