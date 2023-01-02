@@ -29,3 +29,21 @@ INSERT INTO coach(first_name, last_name, photo) VALUES ('Tudor','Orasanu',FILE_R
 INSERT INTO sponsor(name,site_link,logo) VALUES ('Assist Software', 'https://assist-software.net/', FILE_READ('src/main/resources/images/sponsors/1-Assist.jpeg'));
 INSERT INTO sponsor(name,site_link,logo) VALUES ('Tipografia Celestin', 'https://www.tipografiacelestin.ro/', FILE_READ('src/main/resources/images/sponsors/2-Celestin.jpeg'));
 INSERT INTO sponsor(name,site_link,logo) VALUES ('Primaria Suceava', 'http://evp.primariasv.ro/dm_suceava/site.nsf', FILE_READ('src/main/resources/images/sponsors/3-Suceava.png'));
+
+INSERT INTO subscriber(email) values ('alin.orobet@student.usv.ro');
+INSERT INTO subscriber(email) values ('alin.chiperi@student.usv.ro');
+INSERT INTO subscriber(email) values ('stefan.bejinariu@student.usv.ro');
+INSERT INTO subscriber(email) values ('stefan.taranu@student.usv.ro');
+
+INSERT INTO tag (id, name) values (1,'CSM');
+INSERT INTO tag (id, name) values (2,'Volei');
+INSERT INTO tag (id, name) values (3,'Suceava');
+INSERT INTO post(title, under_title, created_by ,content, created_on) values ('Csm Campioana','Echipa de volei a Sucevei a castigat campionatul','Alin Chiperi','Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Eget est lorem ipsum dolor sit. Tortor id aliquet lectus proin.', '2022-12-21');
+
+INSERT INTO post_tag(post_id, tag_id) values (1,1);
+
+
+
+
+
+

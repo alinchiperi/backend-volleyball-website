@@ -50,7 +50,6 @@ public class Post {
     private LocalDateTime createdOn;
     private String createdBy;
 
-
     @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
     @JoinTable(
             name = "post_tag",
@@ -58,6 +57,8 @@ public class Post {
             inverseJoinColumns = @JoinColumn(name = "tag_id")
     )
     private List<Tag> tags = new ArrayList<>();
+
+    private String link;
 
 
 }

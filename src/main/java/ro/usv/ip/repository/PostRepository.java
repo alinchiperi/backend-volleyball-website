@@ -6,6 +6,7 @@ import org.springframework.stereotype.Repository;
 import ro.usv.ip.model.Post;
 
 import java.util.List;
+import java.util.Optional;
 
 @Repository
 public interface PostRepository extends JpaRepository<Post, Long> {
@@ -14,5 +15,6 @@ public interface PostRepository extends JpaRepository<Post, Long> {
 
     @Query(value="SELECT * FROM post order by created_on ASC ", nativeQuery = true)
     List<Post>findAllOrderByCreatedOnAsc();
+
 
 }

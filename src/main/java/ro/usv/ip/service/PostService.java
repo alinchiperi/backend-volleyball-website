@@ -39,6 +39,7 @@ public class PostService {
         post.setContent(postDto.getContent());
         post.setCreatedBy(postDto.getCreatedBy());
         post.setUnderTitle(postDto.getUnderTitle());
+        post.setLink(postDto.getLink());
 
         Post result = postRepository.save(post);
 
