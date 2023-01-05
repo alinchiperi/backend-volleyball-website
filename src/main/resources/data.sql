@@ -42,6 +42,9 @@ INSERT INTO post(title, under_title, created_by ,content, created_on) values ('C
 
 INSERT INTO post_tag(post_id, tag_id) values (1,1);
 
+INSERT INTO team(name, logo) values ('CSM Suceva', FILE_READ('src/main/resources/images/teams/logo_CSM.png'));
+INSERT INTO team(name, logo) values ('CSM Falticeni ', FILE_READ('src/main/resources/images/teams/logo_CSM.png'));
+
 
 
 

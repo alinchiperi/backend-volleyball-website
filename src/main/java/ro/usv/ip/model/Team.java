@@ -6,6 +6,8 @@ import lombok.NonNull;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Getter
 @Setter
@@ -22,12 +24,7 @@ public class Team {
     @Column(name = "logo", columnDefinition = "BLOB")
     private byte[] logo;
 
-    @OneToOne(fetch = FetchType.LAZY)
-    @MapsId
-    @JoinColumn(name = "id")
-    private Game game;
-
-   @OneToOne(mappedBy = "team")
-    private Coach coach;
+//    @OneToOne(mappedBy = "team")
+//    private Coach coach;
 
 }
