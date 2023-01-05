@@ -7,6 +7,8 @@ import org.hibernate.annotations.LazyToOneOption;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.util.List;
 
 @Getter
 @Setter
@@ -17,28 +19,15 @@ public class Game {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @OneToOne(
-            mappedBy = "game",
-            cascade = CascadeType.ALL,
-            fetch = FetchType.LAZY
-    )
 
-    @LazyToOne(LazyToOneOption.NO_PROXY)
-    private Team homeTeam;
+    private Long homeTeamId;
 
-    @OneToOne(
-            mappedBy = "game",
-            cascade = CascadeType.ALL,
-            fetch = FetchType.LAZY
-    )
-
-    @LazyToOne(LazyToOneOption.NO_PROXY)
-    private Team awayTeam;
+    private Long awayTeamId;
 
 
-    private LocalDate date;
+    private LocalDateTime date;
 
-    private String category;
+    private String location;
 
     private String link;
 }
