@@ -45,6 +45,8 @@ INSERT INTO post_tag(post_id, tag_id) values (1,1);
 INSERT INTO team(name, logo) values ('CSM Suceva', FILE_READ('src/main/resources/images/teams/logo_CSM.png'));
 INSERT INTO team(name, logo) values ('CSM Falticeni ', FILE_READ('src/main/resources/images/teams/logo_CSM.png'));
 
+INSERT INTO administrator(first_name,last_name,role,email,password)
+VALUES ('Alin', 'Chiperi','ADMIN','ioan.pop@gmail.com','$2a$12$zXIMmX5ICmeU6jNnzeHR7eCW7gMuysuj.zSUMbaDmQa8NufBd1qEK')
 
 
 
