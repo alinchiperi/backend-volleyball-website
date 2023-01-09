@@ -24,20 +24,26 @@ INSERT INTO  player(first_name, last_name, height,shirt_number, position,nationa
 INSERT INTO  player(first_name, last_name, height,shirt_number, position,nationality,category,dob,photo)
     VALUES ('Andrei','Curic',173,15,'libero','romana', 'senior','2004-05-02',FILE_READ('src/main/resources/images/players/12-Andrei.jpeg'));
 
+--coach
 INSERT INTO coach(first_name, last_name, photo) VALUES ('Tudor','Orasanu',FILE_READ('src/main/resources/images/coach/1-Tudor.jpg'));
 
+-- sponsors
 INSERT INTO sponsor(name,site_link,logo) VALUES ('Assist Software', 'https://assist-software.net/', FILE_READ('src/main/resources/images/sponsors/1-Assist.jpeg'));
 INSERT INTO sponsor(name,site_link,logo) VALUES ('Tipografia Celestin', 'https://www.tipografiacelestin.ro/', FILE_READ('src/main/resources/images/sponsors/2-Celestin.jpeg'));
 INSERT INTO sponsor(name,site_link,logo) VALUES ('Primaria Suceava', 'http://evp.primariasv.ro/dm_suceava/site.nsf', FILE_READ('src/main/resources/images/sponsors/3-Suceava.png'));
 
+-- subscribers
 INSERT INTO subscriber(email) values ('alin.orobet@student.usv.ro');
 INSERT INTO subscriber(email) values ('alin.chiperi@student.usv.ro');
 INSERT INTO subscriber(email) values ('stefan.bejinariu@student.usv.ro');
 INSERT INTO subscriber(email) values ('stefan.taranu@student.usv.ro');
 
+--tags
 INSERT INTO tag ( name) values ('CSM');
 INSERT INTO tag ( name) values ('Volei');
 INSERT INTO tag ( name) values ('Suceava');
+
+--post
 INSERT INTO post(title, under_title, created_by ,content, created_on) values ('Csm Campioana','Echipa de volei a Sucevei a castigat campionatul','Alin Chiperi','Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Eget est lorem ipsum dolor sit. Tortor id aliquet lectus proin.', '2022-12-21');
 
 INSERT INTO post_tag(post_id, tag_id) values (1,1);
@@ -45,8 +51,11 @@ INSERT INTO post_tag(post_id, tag_id) values (1,1);
 INSERT INTO team(name, logo) values ('CSM Suceva', FILE_READ('src/main/resources/images/teams/logo_CSM.png'));
 INSERT INTO team(name, logo) values ('CSM Falticeni ', FILE_READ('src/main/resources/images/teams/logo_CSM.png'));
 
+--pass: parola123
 INSERT INTO administrator(first_name,last_name,role,email,password)
-VALUES ('Alin', 'Chiperi','ADMIN','ioan.pop@gmail.com','$2a$12$zXIMmX5ICmeU6jNnzeHR7eCW7gMuysuj.zSUMbaDmQa8NufBd1qEK')
+VALUES ('Alin', 'Chiperi','ADMIN','chiperialin@gmail.com','$2a$12$zXIMmX5ICmeU6jNnzeHR7eCW7gMuysuj.zSUMbaDmQa8NufBd1qEK');
+INSERT INTO administrator(first_name,last_name,role,email,password)
+VALUES ('Alin', 'Orobet','CONTENT_CREATOR','orobetalin@gmail.com','$2a$12$zXIMmX5ICmeU6jNnzeHR7eCW7gMuysuj.zSUMbaDmQa8NufBd1qEK');
 
 
 

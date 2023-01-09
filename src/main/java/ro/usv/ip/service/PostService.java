@@ -143,7 +143,7 @@ public class PostService {
 
         List<PostImage> postImages = post.getPostImage();
 
-//        logger.info("Post image: "+ Arrays.toString(new List[]{postImages}));
+        logger.info("Post image: "+ Arrays.toString(new List[]{postImages}));
 
         for (PostImage img: postImages){
             images.add(img.getPhoto());

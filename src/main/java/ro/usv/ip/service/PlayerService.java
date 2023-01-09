@@ -50,7 +50,7 @@ public class PlayerService {
 
         /**This is for save image locally if blob isn't accepted */
 
-        String playerImageName = String.valueOf(player.getId()).concat("-").concat(player.getFirstName());
+        /*String playerImageName = String.valueOf(player.getId()).concat("-").concat(player.getFirstName());
 
         String fileName = playerImageName.concat(".").concat(FilenameUtils.getExtension(file.getOriginalFilename()));
 
@@ -62,7 +62,7 @@ public class PlayerService {
             Files.write(fileNamePath, file.getBytes());
         } catch (IOException e) {
             throw new RuntimeException(e);
-        }
+        }*/
 
         return PlayerDto.from(player);
 
@@ -134,17 +134,17 @@ public class PlayerService {
         return player.getPhoto();
     }
 
-    public String makeDirectory() {
-        Path currentPath = Paths.get(".");
-        Path absolutePath = currentPath.toAbsolutePath();
-        String imagePath = absolutePath + "/src/main/resources/images/players/";
-        File directory = new File(imagePath);
-        if (!directory.exists()) {
-            directory.mkdir();
-        }
-
-        return imagePath;
-    }
+//    public String makeDirectory() {
+//        Path currentPath = Paths.get(".");
+//        Path absolutePath = currentPath.toAbsolutePath();
+//        String imagePath = absolutePath + "/src/main/resources/images/players/";
+//        File directory = new File(imagePath);
+//        if (!directory.exists()) {
+//            directory.mkdir();
+//        }
+//
+//        return imagePath;
+//    }
 
     public List<PlayerDto> getPlayerByCategory(String category) {
         List<Player> playersByCategory = playerRepository.getPlayerByCategory(category);
@@ -181,6 +181,12 @@ public class PlayerService {
         Player player = playerRepository.findById(playerId).orElseThrow(()->new PlayerNotFoundException(playerId));
         PlayerStatistic playerStatistic = playerStatisticRepository.findByPlayerId(playerId);
 
-        return PlayerDetailsDto.from(player, playerStatistic);
+        if(playerStatistic == null){
+            throw new RuntimeException("This player have not statistics");
+        }else {
+
+            return PlayerDetailsDto.from(player, playerStatistic);
+
+        }
     }
 }
