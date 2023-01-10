@@ -61,9 +61,7 @@ public class PostController {
         return postService.getPostsOrderByDate();
     }
 
-    @GetMapping(
-            value = "/{postId}/images"
-    )
+    @GetMapping( "/{postId}/images")
     public List<byte[]> getPostImage(@PathVariable Long postId) {
         return postService.getPostImages(postId);
     }

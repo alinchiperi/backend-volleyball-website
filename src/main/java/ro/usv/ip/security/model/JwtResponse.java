@@ -10,6 +10,6 @@ public class JwtResponse {
 
     @Override
     public String toString() {
-        return "{\"token\" : \"" + token + "\"}";
+        return token;
     }
 }

@@ -7,7 +7,6 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.ProviderManager;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
-import org.springframework.security.config.annotation.web.configuration.WebSecurityConfiguration;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityCustomizer;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.www.BasicAuthenticationFilter;
@@ -22,7 +21,7 @@ import ro.usv.ip.security.providers.UsernamePasswordAuthProvider;
 import java.util.List;
 
 @Configuration
-public class SecurityConfig  {
+public class SecurityConfig {
     private final TokenAuthenticationProvider tokenAuthenticationProvider;
     private final UsernamePasswordAuthProvider usernamePasswordAuthProvider;
 
@@ -41,18 +40,25 @@ public class SecurityConfig  {
     public UsernamePasswordAuthFilter usernamePasswordAuthFilter() {
         return new UsernamePasswordAuthFilter();
     }
+
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity httpSecurity, @Value("${security.allowed.paths}") final String[] paths) throws Exception {
         httpSecurity.csrf().disable();
         httpSecurity.addFilterAt(usernamePasswordAuthFilter(), BasicAuthenticationFilter.class)
                 .addFilterAt(tokenAuthenticationFilter(), BasicAuthenticationFilter.class);
 
+        //this is for enable h2 console
+        httpSecurity.authorizeRequests()
+                .antMatchers("/").permitAll()
+                .antMatchers("/h2-console/**").permitAll();
+
+        httpSecurity.csrf().disable();
+        httpSecurity.headers().frameOptions().disable();
 
         httpSecurity.authorizeRequests().mvcMatchers(
                         paths
                 ).permitAll()
                 .anyRequest().hasAnyAuthority(Role.ADMIN.name(), Role.CONTENT_CREATOR.name());
-
 
 
         httpSecurity.cors(c -> {
@@ -69,6 +75,7 @@ public class SecurityConfig  {
 
         return httpSecurity.build();
     }
+
     @Bean
     public WebSecurityCustomizer webSecurityCustomizer() {
         return (web) -> web.ignoring().antMatchers("/swagger-ui/**", "/v3/api-docs/**");
@@ -78,5 +85,6 @@ public class SecurityConfig  {
     public AuthenticationManager providerManager() {
         return new ProviderManager(tokenAuthenticationProvider, usernamePasswordAuthProvider);
     }
+
 
 }

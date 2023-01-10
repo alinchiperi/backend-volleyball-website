@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 import ro.usv.ip.service.EmailService;
 
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/api/email")
 @RequiredArgsConstructor
 public class EmailController {
 

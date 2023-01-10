@@ -31,7 +31,7 @@ import java.util.List;
 public class PlayerController {
     private final PlayerService playerService;
 
-    @PostMapping(value = "", consumes = {
+    @PostMapping(value = "/create", consumes = {
             MediaType.APPLICATION_JSON_VALUE,
             MediaType.MULTIPART_FORM_DATA_VALUE
     })
@@ -44,7 +44,7 @@ public class PlayerController {
         return playerService.getPlayers();
     }
 
-    @DeleteMapping(value = "/{id}")
+    @DeleteMapping(value = "/{id}/delete")
     public ResponseEntity<PlayerDto> deletePlayer(@PathVariable Long id) {
         return ResponseEntity.ok().body(playerService.deletePlayer(id));
     }
@@ -54,7 +54,7 @@ public class PlayerController {
         return ResponseEntity.ok().body(playerService.findPlayerById(id));
     }
 
-    @PutMapping("")
+    @PutMapping("/update")
     public PlayerDto updatePlayer(@RequestBody PlayerDto playerDto) {
         return playerService.updatePlayer(playerDto);
     }
@@ -64,11 +64,8 @@ public class PlayerController {
         playerService.updateProfileImage(id, file);
     }
 
-    @GetMapping(
-            value = "/{id}/image",
-            produces = MediaType.IMAGE_JPEG_VALUE
-    )
-    public @ResponseBody byte[] getPlayerImage(@PathVariable Long id) throws IOException {
+    @GetMapping(value = "/{id}/image", produces = MediaType.IMAGE_JPEG_VALUE)
+    public @ResponseBody byte[] getPlayerImage(@PathVariable Long id) {
         return playerService.getPlayerImage(id);
     }
 
@@ -88,7 +85,7 @@ public class PlayerController {
     }
 
     @GetMapping("/{id}/details")
-    public ResponseEntity<PlayerDetailsDto> getAllPlayerData(@PathVariable Long id){
+    public ResponseEntity<PlayerDetailsDto> getAllPlayerData(@PathVariable Long id) {
         return ResponseEntity.ok().body(playerService.getAllPlayerData(id));
     }
 }

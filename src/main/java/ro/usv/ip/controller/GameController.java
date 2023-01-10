@@ -30,7 +30,7 @@ public class GameController {
     public ResponseEntity<GameDto> addNewGame(@RequestBody  GameDto game){
         return ResponseEntity.ok().body(gameService.createNewGame(game));
     }
-    @GetMapping("game/{id}")
+    @GetMapping("/game/{id}")
     public ResponseEntity<GameDetailsDto> getGameDetails(@PathVariable Long id){
         return ResponseEntity.ok().body(gameService.getGameDetails(id));
     }
