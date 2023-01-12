@@ -21,7 +21,6 @@ import ro.usv.ip.dto.PlayerDto;
 import ro.usv.ip.dto.PlayerStatisticDto;
 import ro.usv.ip.service.PlayerService;
 
-import java.io.IOException;
 import java.util.List;
 
 @RestController
@@ -54,9 +53,16 @@ public class PlayerController {
         return ResponseEntity.ok().body(playerService.findPlayerById(id));
     }
 
-    @PutMapping("/update")
-    public PlayerDto updatePlayer(@RequestBody PlayerDto playerDto) {
-        return playerService.updatePlayer(playerDto);
+    @PutMapping("/update/body")
+    public PlayerDto updatePlayerBody(@RequestBody PlayerDto playerDto) {
+        return playerService.updatePlayerBody(playerDto);
+    }
+    @PostMapping(value="/update", consumes = {
+            MediaType.APPLICATION_JSON_VALUE,
+            MediaType.MULTIPART_FORM_DATA_VALUE
+    })
+    public PlayerDto updatePlayer(@RequestPart("player") PlayerDto playerDto, @RequestParam("imagefile") MultipartFile file) {
+        return playerService.updatePlayer(playerDto, file);
     }
 
     @PutMapping("/{id}/update/image")

@@ -1,7 +1,6 @@
 package ro.usv.ip.service;
 
 import lombok.RequiredArgsConstructor;
-import org.apache.commons.io.FilenameUtils;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 import ro.usv.ip.dto.PlayerDetailsDto;
@@ -14,11 +13,7 @@ import ro.usv.ip.repository.PlayerRepository;
 import ro.usv.ip.repository.PlayerStatisticRepository;
 
 import javax.transaction.Transactional;
-import java.io.File;
 import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -113,7 +108,7 @@ public class PlayerService {
         return PlayerDto.from(player);
     }
 
-    public PlayerDto updatePlayer(PlayerDto playerDto) {
+    public PlayerDto updatePlayerBody(PlayerDto playerDto) {
         Player player = playerRepository.findById(playerDto.getId()).orElseThrow(() -> new PlayerNotFoundException(playerDto.getId()));
 
         player.setId(player.getId());
@@ -124,6 +119,23 @@ public class PlayerService {
         return PlayerDto.from(player);
     }
 
+    public PlayerDto updatePlayer(PlayerDto playerDto, MultipartFile file){
+        Player player = playerRepository.findById(playerDto.getId()).orElseThrow(() -> new PlayerNotFoundException(playerDto.getId()));
+        playerForSave(playerDto, player);
+        //This is for profile picture.
+        try {
+            byte[] byteObjects = new byte[file.getBytes().length];
+            int i = 0;
+            for (byte b : file.getBytes()) {
+                byteObjects[i++] = b;
+            }
+            player.setPhoto(byteObjects);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        player= playerRepository.save(player);
+        return PlayerDto.from(player);
+    }
     public PlayerDto findPlayerById(Long id) {
         Player player = playerRepository.findById(id).orElseThrow(() -> new PlayerNotFoundException(id));
         return PlayerDto.from(player);

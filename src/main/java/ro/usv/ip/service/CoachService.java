@@ -6,7 +6,6 @@ import org.springframework.web.multipart.MultipartFile;
 import ro.usv.ip.dto.CoachDto;
 import ro.usv.ip.exceptions.CoachNotFoundException;
 import ro.usv.ip.model.Coach;
-import ro.usv.ip.model.Player;
 import ro.usv.ip.repository.CoachRepository;
 
 import javax.transaction.Transactional;
@@ -26,22 +25,7 @@ public class CoachService {
         coach.setFirstName(coachDto.getFirstName());
         coach.setLastName(coachDto.getLastName());
 
-        try {
-            byte[] byteObjects = new byte[file.getBytes().length];
-            int i = 0;
-            for (byte b : file.getBytes()) {
-                byteObjects[i++] = b;
-            }
-            coach.setPhoto(byteObjects);
-
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-
-        //toDO: find team id by name and add here
-
-        coach = coachRepository.save(coach);
-        return CoachDto.from(coach);
+        return getCoachDto(file, coach);
     }
 
 
@@ -64,14 +48,35 @@ public class CoachService {
     }
 
 
-    public CoachDto updateCoach(CoachDto coachDto) {
+    public CoachDto updateCoachBody(CoachDto coachDto) {
         Coach coach = coachRepository.findById(coachDto.getId()).orElseThrow();
         coach.setFirstName(coachDto.getFirstName());
         coach.setLastName(coachDto.getLastName());
 
-
-
         //toDO: find team id by name and add here
+        coach = coachRepository.save(coach);
+        return CoachDto.from(coach);
+    }
+
+    public CoachDto updateCoach (CoachDto coachDto, MultipartFile file){
+        Coach coach = coachRepository.findById(coachDto.getId()).orElseThrow();
+        coach.setFirstName(coachDto.getFirstName());
+        coach.setLastName(coachDto.getLastName());
+        return getCoachDto(file, coach);
+    }
+
+    private CoachDto getCoachDto(MultipartFile file, Coach coach) {
+        try {
+            byte[] byteObjects = new byte[file.getBytes().length];
+            int i = 0;
+            for (byte b : file.getBytes()) {
+                byteObjects[i++] = b;
+            }
+            coach.setPhoto(byteObjects);
+
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
         coach = coachRepository.save(coach);
         return CoachDto.from(coach);
     }
