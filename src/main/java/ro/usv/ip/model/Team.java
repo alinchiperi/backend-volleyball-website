@@ -24,6 +24,8 @@ public class Team {
     @Column(name = "logo", columnDefinition = "BLOB")
     private byte[] logo;
 
+    private String location;
+
 //    @OneToOne(mappedBy = "team")
 //    private Coach coach;
 
