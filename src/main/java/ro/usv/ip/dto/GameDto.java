@@ -14,6 +14,8 @@ public class GameDto {
     private Long awayTeamId;
     private LocalDateTime date;
     private String location;
+    private int homeTeamScore;
+    private int awayTeamScore;
 
     public static GameDto from(Game game){
         return GameDto.builder()
@@ -22,6 +24,9 @@ public class GameDto {
                 .awayTeamId(game.getAwayTeamId())
                 .date(game.getDate())
                 .location(game.getLocation())
+                .homeTeamScore(game.getHomeTeamScore())
+                .awayTeamScore(game.getAwayTeamScore())
+
                 .build();
     }
 

@@ -26,6 +26,8 @@ public class Coach {
     @Column(name = "photo", columnDefinition = "BLOB")
     private byte[] photo;
 
+    private String role;
+
 //    @OneToOne(cascade = CascadeType.ALL)
 //    @JoinColumn(name = "team_id")
 //    private Team team;

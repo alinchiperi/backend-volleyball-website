@@ -13,6 +13,7 @@ public class CoachDto {
     private String firstName;
     private String lastName;
     private byte[] photo;
+    private String role;
 
     public static CoachDto from (Coach coach){
         return CoachDto.builder()
@@ -20,6 +21,7 @@ public class CoachDto {
                 .firstName(coach.getFirstName())
                 .lastName(coach.getLastName())
                 .photo(coach.getPhoto())
+                .role(coach.getRole())
                 .build();
     }
 }

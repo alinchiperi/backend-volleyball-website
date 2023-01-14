@@ -1,31 +1,36 @@
 --Players
-INSERT INTO  player(first_name, last_name, height,shirt_number, position,nationality,category,dob,photo)
-    VALUES ('Andrei','Sasu',186,6,'setter','romana', 'senior','1986-07-06',FILE_READ('src/main/resources/images/players/1-Andrei.jpeg'));
-INSERT INTO  player(first_name, last_name, height,shirt_number, position,nationality,category,dob,photo)
-    VALUES ('Alexandru','Dragomir',195,12,'setter','romana', 'senior','1999-07-02',FILE_READ('src/main/resources/images/players/2-Alexandru.jpeg'));
-INSERT INTO  player(first_name, last_name, height,shirt_number, position,nationality,category,dob,photo)
-    VALUES ('Darius ','Pop',200,2,'opposite','romana', 'senior','2003-03-10',FILE_READ('src/main/resources/images/players/3-Darius.jpeg'));
-INSERT INTO  player(first_name, last_name, height,shirt_number, position,nationality,category,dob,photo)
-    VALUES ('Ioan','Verciuc',195,4,'outside hitter','romana', 'senior','2008-01-23',FILE_READ('src/main/resources/images/players/4-Ioan.jpeg'));
-INSERT INTO  player(first_name, last_name, height,shirt_number, position,nationality,category,dob,photo)
-    VALUES ('Alexandru','Dragomir',185,12,'outside hitter','romana', 'senior','2002-12-05',FILE_READ('src/main/resources/images/players/5-Alexandru.jpeg'));
-INSERT INTO  player(first_name, last_name, height,shirt_number, position,nationality,category,dob,photo)
-VALUES ('Marius','Gontariu',194,9,'outside hitter','romana', 'senior','1992-08-05',FILE_READ('src/main/resources/images/players/6-Marius.jpeg'));
-    INSERT INTO  player(first_name, last_name, height,shirt_number, position,nationality,category,photo)
-VALUES ('Sabin','Hartopeanu',195,7,'middle-blocker','romana', 'senior',FILE_READ('src/main/resources/images/players/7-Sabin.jpeg'));
-    INSERT INTO  player(first_name, last_name, height,shirt_number, position,nationality,category,dob,photo)
-    VALUES ('Cosmin','Boghean',195,11,'middle-blocker','romana', 'senior','2002-07-17',FILE_READ('src/main/resources/images/players/8-Cosmin.jpeg'));
-INSERT INTO  player(first_name, last_name, height,shirt_number, position,nationality,category,dob,photo)
-VALUES ('Cezar','Ciubotariu',195,13,'middle-blocker','romana', 'senior','2004-07-28',FILE_READ('src/main/resources/images/players/9-Cezar.jpeg'));
-INSERT INTO  player(first_name, last_name, height,shirt_number, position,nationality,category,photo)
-    VALUES ('Cosmin Robert','Ciubotaru',205,14,'middle-blocker','romana', 'senior',FILE_READ('src/main/resources/images/players/10-Cosmin.jpeg'));
-INSERT INTO  player(first_name, last_name, height,shirt_number, position,nationality,category,dob,photo)
-    VALUES ('Matei','Platon',185,12,'libero','romana', 'senior','2003-07-27',FILE_READ('src/main/resources/images/players/11-Matei.jpeg'));
-INSERT INTO  player(first_name, last_name, height,shirt_number, position,nationality,category,dob,photo)
-    VALUES ('Andrei','Curic',173,15,'libero','romana', 'senior','2004-05-02',FILE_READ('src/main/resources/images/players/12-Andrei.jpeg'));
+INSERT INTO  player(first_name, last_name, height,weight,shirt_number, position,nationality,category,dob,photo)
+    VALUES ('Andrei','Sasu',186,85,6,'setter','romana', 'senior','1986-07-06',FILE_READ('src/main/resources/images/players/1-Andrei.jpeg'));
+INSERT INTO  player(first_name, last_name, height,weight,shirt_number, position,nationality,category,dob,photo)
+    VALUES ('Alexandru','Dragomir',195,73,12,'setter','romana', 'senior','1999-07-02',FILE_READ('src/main/resources/images/players/2-Alexandru.jpeg'));
+INSERT INTO  player(first_name, last_name, height,weight,shirt_number, position,nationality,category,dob,photo)
+    VALUES ('Darius ','Pop',200,80,2,'opposite','romana', 'senior','2003-03-10',FILE_READ('src/main/resources/images/players/3-Darius.jpeg'));
+INSERT INTO  player(first_name, last_name, height,weight,shirt_number, position,nationality,category,dob,photo)
+    VALUES ('Ioan','Verciuc',195,79,4,'outside hitter','romana', 'senior','2008-01-23',FILE_READ('src/main/resources/images/players/4-Ioan.jpeg'));
+INSERT INTO  player(first_name, last_name, height,weight,shirt_number, position,nationality,category,dob,photo)
+    VALUES ('Alexandru','Dragomir',185,89,12,'outside hitter','romana', 'senior','2002-12-05',FILE_READ('src/main/resources/images/players/5-Alexandru.jpeg'));
+INSERT INTO  player(first_name, last_name, height,weight,shirt_number, position,nationality,category,dob,photo)
+VALUES ('Marius','Gontariu',194,75,9,'outside hitter','romana', 'senior','1992-08-05',FILE_READ('src/main/resources/images/players/6-Marius.jpeg'));
+    INSERT INTO  player(first_name, last_name, height,weight,shirt_number, position,nationality,category,photo)
+VALUES ('Sabin','Hartopeanu',195,88,7,'middle-blocker','romana', 'senior',FILE_READ('src/main/resources/images/players/7-Sabin.jpeg'));
+    INSERT INTO  player(first_name, last_name, height,weight,shirt_number, position,nationality,category,dob,photo)
+    VALUES ('Cosmin','Boghean',195,75,11,'middle-blocker','romana', 'senior','2002-07-17',FILE_READ('src/main/resources/images/players/8-Cosmin.jpeg'));
+INSERT INTO  player(first_name, last_name, height,weight,shirt_number, position,nationality,category,dob,photo)
+VALUES ('Cezar','Ciubotariu',195,82,13,'middle-blocker','romana', 'senior','2004-07-28',FILE_READ('src/main/resources/images/players/9-Cezar.jpeg'));
+INSERT INTO  player(first_name, last_name, height,weight,shirt_number, position,nationality,category,photo)
+    VALUES ('Cosmin Robert','Ciubotaru',205,96,14,'middle-blocker','romana', 'senior',FILE_READ('src/main/resources/images/players/10-Cosmin.jpeg'));
+INSERT INTO  player(first_name, last_name, height,weight,shirt_number, position,nationality,category,dob,photo)
+    VALUES ('Matei','Platon',185,85,12,'libero','romana', 'senior','2003-07-27',FILE_READ('src/main/resources/images/players/11-Matei.jpeg'));
+INSERT INTO  player(first_name, last_name, height,weight,shirt_number, position,nationality,category,dob,photo)
+    VALUES ('Andrei','Curic',173,73,15,'libero','romana', 'senior','2004-05-02',FILE_READ('src/main/resources/images/players/12-Andrei.jpeg'));
 
+
+--Statistics
+
+INSERT INTO player_statistic(player_id, aces,attacks, blocks, season_start, season_stop) VALUES (1, 5, 10,15,'2021','2022') ;
+INSERT INTO player_statistic(player_id, aces,attacks, blocks, season_start, season_stop) VALUES (1, 10, 20,30,'2022','2023') ;
 --coach
-INSERT INTO coach(first_name, last_name, photo) VALUES ('Tudor','Orasanu',FILE_READ('src/main/resources/images/coach/1-Tudor.jpg'));
+INSERT INTO coach(first_name, last_name, photo, role) VALUES ('Tudor','Orasanu',FILE_READ('src/main/resources/images/coach/1-Tudor.jpg'),'antrenor');
 
 -- sponsors
 INSERT INTO sponsor(name,site_link,logo) VALUES ('Assist Software', 'https://assist-software.net/', FILE_READ('src/main/resources/images/sponsors/1-Assist.jpeg'));
