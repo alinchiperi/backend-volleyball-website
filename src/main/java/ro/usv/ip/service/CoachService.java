@@ -24,6 +24,7 @@ public class CoachService {
 
         coach.setFirstName(coachDto.getFirstName());
         coach.setLastName(coachDto.getLastName());
+        coach.setRole(coachDto.getRole());
 
         return getCoachDto(file, coach);
     }
@@ -62,6 +63,7 @@ public class CoachService {
         Coach coach = coachRepository.findById(coachDto.getId()).orElseThrow();
         coach.setFirstName(coachDto.getFirstName());
         coach.setLastName(coachDto.getLastName());
+        coach.setRole(coachDto.getRole());
         return getCoachDto(file, coach);
     }
 

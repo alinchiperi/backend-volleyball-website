@@ -18,9 +18,10 @@ public class PlayerStatistic {
     private Integer blocks;
     private Integer aces;
 
-    @OneToOne
-    @MapsId  // this if player statistic should have same id as player
+    @ManyToOne
     @JoinColumn(name = "player_id", referencedColumnName = "id")
     private Player player;
+     private String seasonStart;
+     private String seasonStop;
 
 }

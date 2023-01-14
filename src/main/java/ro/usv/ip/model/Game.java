@@ -30,4 +30,7 @@ public class Game {
     private String location;
 
     private String link;
+
+    private int homeTeamScore;
+    private int awayTeamScore;
 }

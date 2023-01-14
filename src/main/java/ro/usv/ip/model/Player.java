@@ -9,6 +9,7 @@ import lombok.Setter;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.List;
 
 
 @Getter
@@ -29,7 +30,7 @@ public class Player {
     private LocalDate dob;
 
     private float height;
-//    private float weight;
+    private float weight;
 
     private int shirtNumber;
 
@@ -43,6 +44,10 @@ public class Player {
     private String description;
 
     private String position;
+
+    @OneToMany(mappedBy = "player",fetch = FetchType.LAZY,
+            cascade = CascadeType.ALL)
+    List<PlayerStatistic> statistics;
 
 
 }

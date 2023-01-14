@@ -13,6 +13,8 @@ public class PlayerStatisticDto {
     private Integer blocks;
     private Integer aces;
     private Long playerId;
+    private String seasonStart;
+    private String seasonStop;
 
     public static PlayerStatisticDto from(PlayerStatistic playerStatistic){
         return PlayerStatisticDto.builder()
@@ -21,6 +23,8 @@ public class PlayerStatisticDto {
                 .blocks(playerStatistic.getBlocks())
                 .aces(playerStatistic.getAces())
                 .playerId(playerStatistic.getPlayer().getId())
+                .seasonStart(playerStatistic.getSeasonStart())
+                .seasonStop(playerStatistic.getSeasonStop())
                 .build();
 
     }

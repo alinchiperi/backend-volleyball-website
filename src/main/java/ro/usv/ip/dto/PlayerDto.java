@@ -15,12 +15,14 @@ public class PlayerDto {
     private String lastName;
     private LocalDate dob;
     private float height;
+    private float weight;
     private int shirtNumber;
     private String category;
     private byte[] photo;
     private String nationality;
     private String description;
     private String position;
+    private String title;
 
     public static PlayerDto from (Player player){
         return PlayerDto.builder()
@@ -29,12 +31,14 @@ public class PlayerDto {
                 .lastName(player.getLastName())
                 .dob(player.getDob())
                 .height(player.getHeight())
+                .weight(player.getWeight())
                 .shirtNumber(player.getShirtNumber())
                 .photo(player.getPhoto())
                 .category(player.getCategory())
                 .nationality(player.getNationality())
                 .description(player.getDescription())
                 .position(player.getPosition())
+                .title(player.getTitle())
                 .build();
     }
 }

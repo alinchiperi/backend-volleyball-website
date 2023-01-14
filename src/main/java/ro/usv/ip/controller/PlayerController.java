@@ -57,7 +57,7 @@ public class PlayerController {
     public PlayerDto updatePlayerBody(@RequestBody PlayerDto playerDto) {
         return playerService.updatePlayerBody(playerDto);
     }
-    @PostMapping(value="/update", consumes = {
+    @PutMapping(value="/update", consumes = {
             MediaType.APPLICATION_JSON_VALUE,
             MediaType.MULTIPART_FORM_DATA_VALUE
     })

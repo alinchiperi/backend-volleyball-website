@@ -68,11 +68,14 @@ public class PlayerService {
         player.setLastName(playerDto.getLastName());
         player.setShirtNumber(playerDto.getShirtNumber());
         player.setCategory(playerDto.getCategory());
-        player.setDescription(player.getDescription());
+        player.setDescription(playerDto.getDescription());
         player.setDob(playerDto.getDob());
         player.setHeight(playerDto.getHeight());
         player.setDescription(playerDto.getDescription());
         player.setNationality(playerDto.getNationality());
+        player.setPosition(playerDto.getPosition());
+        player.setTitle(playerDto.getTitle());
+        player.setWeight(playerDto.getWeight());
     }
 
     @Transactional
@@ -178,21 +181,25 @@ public class PlayerService {
         playerStatistic.setAttacks(playerStatisticDto.getAttacks());
         playerStatistic.setBlocks(playerStatisticDto.getBlocks());
         playerStatistic.setPlayer(player);
+        playerStatistic.setSeasonStart(playerStatisticDto.getSeasonStart());
+        playerStatistic.setSeasonStop(playerStatisticDto.getSeasonStop());
 
         playerStatisticRepository.save(playerStatistic);
 
     }
 
     public PlayerStatisticDto getPlayerStatistic(Long playerId) {
-        PlayerStatistic playerStatistic = playerStatisticRepository.findByPlayerId(playerId);
+        List<PlayerStatistic> playerStatistics = playerStatisticRepository.findByPlayerIdOrderBySeasonStartDesc(playerId);
 
+        PlayerStatistic playerStatistic = playerStatistics.get(0);
         return PlayerStatisticDto.from(playerStatistic);
     }
 
     public PlayerDetailsDto getAllPlayerData(Long playerId){
         Player player = playerRepository.findById(playerId).orElseThrow(()->new PlayerNotFoundException(playerId));
-        PlayerStatistic playerStatistic = playerStatisticRepository.findByPlayerId(playerId);
+        List<PlayerStatistic> playerStatistics = playerStatisticRepository.findByPlayerIdOrderBySeasonStartDesc(playerId);
 
+        PlayerStatistic playerStatistic = playerStatistics.get(0);
         if(playerStatistic == null){
             throw new RuntimeException("This player have not statistics");
         }else {
