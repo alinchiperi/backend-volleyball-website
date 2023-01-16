@@ -36,7 +36,7 @@ public class SponsorController {
         return sponsorService.addSponsor(sponsorDto, file);
     }
 
-    @DeleteMapping(value = "/{id}")
+    @DeleteMapping(value = "/{id}/delete")
     public ResponseEntity<SponsorDto> deleteSponsor(@PathVariable Long id) {
         return ResponseEntity.ok().body(sponsorService.deleteSponsor(id));
     }
