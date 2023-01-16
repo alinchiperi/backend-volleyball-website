@@ -19,7 +19,6 @@ public class Game {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-
     private Long homeTeamId;
 
     private Long awayTeamId;

@@ -38,6 +38,9 @@ public class GameService {
         gameDetails.setHomeTeam(homeTeam);
         gameDetails.setLocation(game.getLocation());
         gameDetails.setDate(game.getDate());
+        gameDetails.setHomeTeamScore(game.getHomeTeamScore());
+        gameDetails.setAwayTeamScore(game.getAwayTeamScore());
+        gameDetails.setLink(game.getLink());
 
         return gameDetails;
     }
@@ -62,6 +65,9 @@ public class GameService {
         newGame.setAwayTeamId(awayTeam.getId());
         newGame.setDate(gameDto.getDate());
         newGame.setLocation(gameDto.getLocation());
+        newGame.setHomeTeamScore(gameDto.getHomeTeamScore());
+        newGame.setAwayTeamScore(gameDto.getAwayTeamScore());
+        newGame.setLink(gameDto.getLink());
 
         newGame = gameRepository.save(newGame);
         return GameDto.from(newGame);

@@ -19,6 +19,7 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
 
 
 @Service
@@ -40,6 +41,7 @@ public class PostService {
         post.setCreatedBy(postDto.getCreatedBy());
         post.setUnderTitle(postDto.getUnderTitle());
         post.setLink(postDto.getLink());
+        post.setCategory(postDto.getCategory());
 
         Post result = postRepository.save(post);
 
@@ -77,6 +79,7 @@ public class PostService {
         post.setContent(postDto.getContent());
         post.setCreatedBy(postDto.getCreatedBy());
         post.setUnderTitle(postDto.getUnderTitle());
+        post.setCategory(post.getCategory());
 
         Post result = postRepository.saveAndFlush(post);
         return PostDto.from(result);
@@ -93,11 +96,7 @@ public class PostService {
     }
 
     static List<PostDto> changePostToDto(List<Post> posts) {
-        List<PostDto> postDtos = new ArrayList<>();
-        for (Post p : posts) {
-            postDtos.add(PostDto.from(p));
-        }
-        return postDtos;
+        return posts.stream().map(PostDto::from).collect(Collectors.toList());
     }
 
     public List<PostDto> getPostsOrderByDate() {
@@ -109,7 +108,6 @@ public class PostService {
     }
 
     public void saveImagesInDataBase(Long postId, MultipartFile[] files) {
-        List<PostImage> imageList = new ArrayList<>();
         Post post = postRepository.findById(postId).orElseThrow(() -> new PostNotFoundException(postId));
 
         for (MultipartFile file : files) {
@@ -142,8 +140,6 @@ public class PostService {
         List<byte[]> images= new ArrayList<>();
 
         List<PostImage> postImages = post.getPostImage();
-
-        logger.info("Post image: "+ Arrays.toString(new List[]{postImages}));
 
         for (PostImage img: postImages){
             images.add(img.getPhoto());

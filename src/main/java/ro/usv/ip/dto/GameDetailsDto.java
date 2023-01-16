@@ -17,4 +17,7 @@ public class GameDetailsDto {
     private Team awayTeam;
     private LocalDateTime date;
     private String location;
+    private int homeTeamScore;
+    private int awayTeamScore;
+    private String link;
 }

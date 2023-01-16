@@ -60,5 +60,7 @@ public class Post {
 
     private String link;
 
+    private String category;
+
 
 }

@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.time.LocalDate;
 
 @Getter
 @Setter
@@ -27,6 +28,10 @@ public class Coach {
     private byte[] photo;
 
     private String role;
+
+    private LocalDate dob;
+
+    private String description;
 
 //    @OneToOne(cascade = CascadeType.ALL)
 //    @JoinColumn(name = "team_id")

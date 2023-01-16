@@ -12,6 +12,7 @@ import javax.transaction.Transactional;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
@@ -25,21 +26,15 @@ public class CoachService {
         coach.setFirstName(coachDto.getFirstName());
         coach.setLastName(coachDto.getLastName());
         coach.setRole(coachDto.getRole());
+        coach.setDob(coachDto.getDob());
+        coach.setDescription(coachDto.getDescription());
 
         return getCoachDto(file, coach);
     }
 
-
     public List<CoachDto> getCoaches() {
         List<Coach> coaches = coachRepository.findAll();
-        List<CoachDto> coachDtos = new ArrayList<>();
-
-        for (Coach ch :
-                coaches) {
-            coachDtos.add(CoachDto.from(ch));
-        }
-
-        return coachDtos;
+        return coaches.stream().map(CoachDto::from).collect(Collectors.toList());
     }
 
     public CoachDto deleteCoach(Long id) {

@@ -20,6 +20,7 @@ public class PostDto {
     private String content;
     private String createdBy;
     private String link;
+    private String category;
 
     public static PostDto from(Post post) {
         return PostDto.builder()
@@ -33,6 +34,7 @@ public class PostDto {
                 .createdOn(post.getCreatedOn())
                 .createdBy(post.getCreatedBy())
                 .link(post.getLink())
+                .category(post.getCategory())
                 .build();
     }
 }

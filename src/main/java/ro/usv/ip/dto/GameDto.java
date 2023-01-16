@@ -14,6 +14,7 @@ public class GameDto {
     private Long awayTeamId;
     private LocalDateTime date;
     private String location;
+    private String link;
     private int homeTeamScore;
     private int awayTeamScore;
 
@@ -26,7 +27,7 @@ public class GameDto {
                 .location(game.getLocation())
                 .homeTeamScore(game.getHomeTeamScore())
                 .awayTeamScore(game.getAwayTeamScore())
-
+                .link(game.getLink())
                 .build();
     }
 
