@@ -66,7 +66,7 @@ public class PostService {
         return changePostToDto(posts);
     }
 
-    public PostDto update( PostDto postDto) {
+    public PostDto update(PostDto postDto) {
         long postId = postDto.getId();
         Post post = postRepository.findById(postId)
                 .orElseThrow(() -> new PostNotFoundException(postId));
@@ -137,7 +137,7 @@ public class PostService {
     public List<byte[]> getPostImages(Long postId) {
 
         Post post = postRepository.findById(postId).orElseThrow(() -> new PostNotFoundException(postId));
-        List<byte[]> images= new ArrayList<>();
+        List<byte[]> images = new ArrayList<>();
 
         List<PostImage> postImages = post.getPostImage();
 
@@ -149,35 +149,5 @@ public class PostService {
     }
 
 
-    //for local save
-    /*public String saveImagesInFolder(Long id,  MultipartFile[] files){
-
-        if (files == null || files.length == 0) {
-            throw new RuntimeException("You must select at least one file for uploading");
-        }
-
-        String path = makePostsDirectory();
-
-        path+= id;
-
-        File directory = new File(path);
-        directory.mkdir();
-
-
-        return "";
-
-    }*/
-
-   /* public String makePostsDirectory() {
-        Path currentPath = Paths.get(".");
-        Path absolutePath = currentPath.toAbsolutePath();
-        String imagePath = absolutePath + "/src/main/resources/images/posts/";
-        File directory = new File(imagePath);
-        if (!directory.exists()) {
-            directory.mkdir();
-        }
-
-        return imagePath;
-    }*/
 
 }

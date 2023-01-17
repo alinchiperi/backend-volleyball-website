@@ -16,11 +16,13 @@ public class PostDto {
     private String title;
     private List<TagDto> tags;
     private LocalDateTime createdOn;
+    private LocalDateTime postedOn;
     private String underTitle;
     private String content;
     private String createdBy;
     private String link;
     private String category;
+    private boolean match;
 
     public static PostDto from(Post post) {
         return PostDto.builder()
@@ -32,8 +34,10 @@ public class PostDto {
                 .content(post.getContent())
                 .underTitle(post.getUnderTitle())
                 .createdOn(post.getCreatedOn())
+                .postedOn(post.getPostedOn())
                 .createdBy(post.getCreatedBy())
                 .link(post.getLink())
+                .match(post.isMatch())
                 .category(post.getCategory())
                 .build();
     }

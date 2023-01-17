@@ -42,6 +42,7 @@ public class GameService {
         gameDetails.setAwayTeamScore(game.getAwayTeamScore());
         gameDetails.setLink(game.getLink());
 
+
         return gameDetails;
     }
 

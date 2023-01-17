@@ -16,5 +16,7 @@ public interface PostRepository extends JpaRepository<Post, Long> {
     @Query(value="SELECT * FROM post order by created_on ASC ", nativeQuery = true)
     List<Post>findAllOrderByCreatedOnAsc();
 
+    List<Post>findByMatchOrderByPostedOnAsc(boolean match);
+
 
 }

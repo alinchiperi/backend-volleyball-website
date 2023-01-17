@@ -62,5 +62,8 @@ public class Post {
 
     private String category;
 
+    private LocalDateTime postedOn;
+
+    private boolean match;
 
 }
