@@ -1,6 +1,7 @@
 package ro.usv.ip.service;
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.scheduling.annotation.Scheduled;
@@ -8,6 +9,7 @@ import org.springframework.stereotype.Service;
 import org.thymeleaf.ITemplateEngine;
 import org.thymeleaf.context.Context;
 
+import ro.usv.ip.dto.ContactDto;
 import ro.usv.ip.model.Post;
 import ro.usv.ip.model.Subscriber;
 import ro.usv.ip.repository.PostRepository;
@@ -56,8 +58,8 @@ public class EmailService {
     /**
      * method executed in each monday at 13:30 Bucharest time
      */
-    @Scheduled(cron = "0 30 13 * * MON", zone="Europe/Bucharest")
 //    @Scheduled(fixedRate = 1000)
+    @Scheduled(cron = "0 30 13 * * MON", zone="Europe/Bucharest")
     public void sendNewsToSubscriber() {
         List<Subscriber> subscribers = subscriberRepository.findAll();
         List<Post> posts = postRepository.findAllOrderByCreatedOnAsc();
@@ -81,4 +83,18 @@ public class EmailService {
         }
     }
 
+    public void sendContactMessage(ContactDto contact) {
+        String email = "csm.volei.suceava@gmail.com";
+        SimpleMailMessage mailMessage = new SimpleMailMessage();
+        mailMessage.setTo(email);
+        mailMessage.setSubject(contact.getName());
+        mailMessage.setText(contact.getMessage());
+        javaMailSender.send(mailMessage);
+
+        if(contact.isCheckboxCopy()){
+            mailMessage.setTo(contact.getEmail());
+            javaMailSender.send(mailMessage);
+        }
+
+    }
 }
