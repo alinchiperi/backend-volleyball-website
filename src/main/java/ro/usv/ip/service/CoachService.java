@@ -28,6 +28,7 @@ public class CoachService {
         coach.setRole(coachDto.getRole());
         coach.setDob(coachDto.getDob());
         coach.setDescription(coachDto.getDescription());
+        coach.setTitle(coachDto.getTitle());
 
         return getCoachDto(file, coach);
     }
@@ -49,6 +50,7 @@ public class CoachService {
         coach.setFirstName(coachDto.getFirstName());
         coach.setLastName(coachDto.getLastName());
 
+
         //toDO: find team id by name and add here
         coach = coachRepository.save(coach);
         return CoachDto.from(coach);
@@ -59,6 +61,9 @@ public class CoachService {
         coach.setFirstName(coachDto.getFirstName());
         coach.setLastName(coachDto.getLastName());
         coach.setRole(coachDto.getRole());
+        coach.setDob(coachDto.getDob());
+        coach.setDescription(coachDto.getDescription());
+        coach.setTitle(coachDto.getTitle());
         return getCoachDto(file, coach);
     }
 

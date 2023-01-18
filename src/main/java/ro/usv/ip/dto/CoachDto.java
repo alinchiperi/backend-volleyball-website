@@ -17,6 +17,7 @@ public class CoachDto {
     private LocalDate dob;
     private String role;
     private String description;
+    private String title;
 
 
     public static CoachDto from (Coach coach){
@@ -28,6 +29,7 @@ public class CoachDto {
                 .role(coach.getRole())
                 .dob(coach.getDob())
                 .description(coach.getDescription())
+                .title(coach.getTitle())
                 .build();
     }
 }

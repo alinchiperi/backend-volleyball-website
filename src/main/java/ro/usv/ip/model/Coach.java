@@ -32,6 +32,7 @@ public class Coach {
     private LocalDate dob;
 
     private String description;
+    private String title;
 
 //    @OneToOne(cascade = CascadeType.ALL)
 //    @JoinColumn(name = "team_id")
