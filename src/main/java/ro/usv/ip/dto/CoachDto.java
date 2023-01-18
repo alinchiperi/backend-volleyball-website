@@ -18,6 +18,7 @@ public class CoachDto {
     private String role;
     private String description;
     private String title;
+    private String nationality;
 
 
     public static CoachDto from (Coach coach){
@@ -30,6 +31,7 @@ public class CoachDto {
                 .dob(coach.getDob())
                 .description(coach.getDescription())
                 .title(coach.getTitle())
+                .nationality(coach.getNationality())
                 .build();
     }
 }

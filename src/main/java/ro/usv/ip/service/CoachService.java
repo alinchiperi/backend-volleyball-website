@@ -29,6 +29,8 @@ public class CoachService {
         coach.setDob(coachDto.getDob());
         coach.setDescription(coachDto.getDescription());
         coach.setTitle(coachDto.getTitle());
+        coach.setNationality(coachDto.getNationality());
+
 
         return getCoachDto(file, coach);
     }
@@ -64,6 +66,7 @@ public class CoachService {
         coach.setDob(coachDto.getDob());
         coach.setDescription(coachDto.getDescription());
         coach.setTitle(coachDto.getTitle());
+        coach.setNationality(coachDto.getNationality());
         return getCoachDto(file, coach);
     }
 

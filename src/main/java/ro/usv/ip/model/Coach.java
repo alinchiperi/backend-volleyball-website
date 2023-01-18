@@ -33,6 +33,7 @@ public class Coach {
 
     private String description;
     private String title;
+    private String nationality;
 
 //    @OneToOne(cascade = CascadeType.ALL)
 //    @JoinColumn(name = "team_id")
