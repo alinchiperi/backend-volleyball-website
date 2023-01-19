@@ -41,6 +41,8 @@ public class Player {
     private String category;
     private String nationality;
     private String title;
+    @Lob
+    @Column(name = "description", columnDefinition = "TEXT")
     private String description;
 
     private String position;

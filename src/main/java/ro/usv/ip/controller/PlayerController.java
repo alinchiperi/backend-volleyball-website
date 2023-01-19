@@ -22,6 +22,7 @@ import ro.usv.ip.dto.PlayerStatisticDto;
 import ro.usv.ip.service.PlayerService;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequiredArgsConstructor
@@ -57,13 +58,15 @@ public class PlayerController {
     public PlayerDto updatePlayerBody(@RequestBody PlayerDto playerDto) {
         return playerService.updatePlayerBody(playerDto);
     }
-    @PutMapping(value="/update", consumes = {
-            MediaType.APPLICATION_JSON_VALUE,
-            MediaType.MULTIPART_FORM_DATA_VALUE
-    })
-    public PlayerDto updatePlayer(@RequestPart("player") PlayerDto playerDto, @RequestParam("imagefile") MultipartFile file) {
-        return playerService.updatePlayer(playerDto, file);
-    }
+
+    // TODO: 18.01.2023  
+//    @PutMapping(value="/update", consumes = {
+//            MediaType.APPLICATION_JSON_VALUE,
+//            MediaType.MULTIPART_FORM_DATA_VALUE
+//    })
+////    public PlayerDto updatePlayer(@RequestPart("player") PlayerDto playerDto, @RequestParam("imagefile") Optional< MultipartFile>file) {
+////        return playerService.updatePlayer(playerDto, file);
+////    }
 
     @PutMapping("/{id}/update/image")
     public void updatePlayerPicture(@PathVariable("id") Long id, @RequestParam("imagefile") MultipartFile file) {

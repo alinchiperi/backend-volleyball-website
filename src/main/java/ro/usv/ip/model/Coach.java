@@ -31,6 +31,8 @@ public class Coach {
 
     private LocalDate dob;
 
+    @Lob
+    @Column(name = "description", columnDefinition = "TEXT")
     private String description;
     private String title;
     private String nationality;
