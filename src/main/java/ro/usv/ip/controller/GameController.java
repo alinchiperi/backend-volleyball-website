@@ -18,6 +18,8 @@ import ro.usv.ip.dto.GameDto;
 import ro.usv.ip.dto.GameDetailsDto;
 import ro.usv.ip.service.GameService;
 
+import java.util.List;
+
 @RestController
 @Slf4j
 @RequestMapping("/api")
@@ -42,6 +44,11 @@ public class GameController {
     @PutMapping("/game/update")
     public ResponseEntity<GameDto> updateGame(@RequestBody  GameDto game){
         return ResponseEntity.ok().body(gameService.updateGame(game));
+    }
+
+    @GetMapping("/game/games")
+    public ResponseEntity<List<GameDetailsDto>> getAllGames(){
+        return ResponseEntity.ok().body(gameService.getAllGames());
     }
 
 }

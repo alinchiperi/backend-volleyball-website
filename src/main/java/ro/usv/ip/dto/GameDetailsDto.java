@@ -13,6 +13,7 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 @Data
 public class GameDetailsDto {
+    private Long id;
     private Team homeTeam;
     private Team awayTeam;
     private LocalDateTime date;
@@ -20,4 +21,5 @@ public class GameDetailsDto {
     private int homeTeamScore;
     private int awayTeamScore;
     private String link;
+    private String linkFederatie;
 }

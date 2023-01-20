@@ -29,6 +29,7 @@ public class Game {
     private String location;
 
     private String link;
+    private String linkFederatie;
 
     private int homeTeamScore;
     private int awayTeamScore;

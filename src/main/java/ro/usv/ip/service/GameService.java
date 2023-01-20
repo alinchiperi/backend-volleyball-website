@@ -14,6 +14,9 @@ import ro.usv.ip.model.Team;
 import ro.usv.ip.repository.GameRepository;
 import ro.usv.ip.repository.TeamRepository;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Service
 @Slf4j
 @RequiredArgsConstructor
@@ -30,10 +33,16 @@ public class GameService {
 
     public GameDetailsDto getGameDetails(Long id) {
         Game game = gameRepository.findById(id).orElseThrow(() -> new GameNotFoundException(id));
+
+        return createGameDetails(game);
+    }
+
+    private GameDetailsDto createGameDetails(Game game) {
+        GameDetailsDto gameDetails = new GameDetailsDto();
         Team homeTeam = teamRepository.findById(game.getHomeTeamId()).orElseThrow(() -> new TeamNotFoundException(game.getHomeTeamId()));
         Team awayTeam = teamRepository.findById(game.getAwayTeamId()).orElseThrow(() -> new TeamNotFoundException(game.getAwayTeamId()));
 
-        GameDetailsDto gameDetails = new GameDetailsDto();
+        gameDetails.setId(game.getId());
         gameDetails.setAwayTeam(awayTeam);
         gameDetails.setHomeTeam(homeTeam);
         gameDetails.setLocation(game.getLocation());
@@ -41,6 +50,7 @@ public class GameService {
         gameDetails.setHomeTeamScore(game.getHomeTeamScore());
         gameDetails.setAwayTeamScore(game.getAwayTeamScore());
         gameDetails.setLink(game.getLink());
+        gameDetails.setLinkFederatie(game.getLinkFederatie());
 
         return gameDetails;
     }
@@ -68,8 +78,20 @@ public class GameService {
         newGame.setHomeTeamScore(gameDto.getHomeTeamScore());
         newGame.setAwayTeamScore(gameDto.getAwayTeamScore());
         newGame.setLink(gameDto.getLink());
+        newGame.setLinkFederatie(gameDto.getLinkFederatie());
 
         newGame = gameRepository.save(newGame);
         return GameDto.from(newGame);
+    }
+
+    public List<GameDetailsDto> getAllGames() {
+        List<GameDetailsDto> gameDetailsDtos = new ArrayList<>();
+        List<Game> games = gameRepository.findAll();
+
+        for (Game game : games) {
+           GameDetailsDto gameDetailsDto = createGameDetails(game);
+           gameDetailsDtos.add(gameDetailsDto);
+        }
+        return gameDetailsDtos;
     }
 }
