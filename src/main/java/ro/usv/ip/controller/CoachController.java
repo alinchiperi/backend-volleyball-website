@@ -63,7 +63,7 @@ public class CoachController {
     @PutMapping(value = "/update", consumes = {
             MediaType.APPLICATION_JSON_VALUE,
             MediaType.MULTIPART_FORM_DATA_VALUE})
-    public CoachDto updateCoach(@RequestPart("coach") CoachDto coachDto, @RequestParam("imagefile") MultipartFile file) {
+    public CoachDto updateCoach(@RequestPart("coach") CoachDto coachDto, @RequestParam(value= "imagefile", required = false) MultipartFile file) {
         return coachService.updateCoach(coachDto,file);
     }
 

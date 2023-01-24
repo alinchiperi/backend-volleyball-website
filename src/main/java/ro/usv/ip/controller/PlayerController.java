@@ -59,14 +59,14 @@ public class PlayerController {
         return playerService.updatePlayerBody(playerDto);
     }
 
-    // TODO: 18.01.2023  
-//    @PutMapping(value="/update", consumes = {
-//            MediaType.APPLICATION_JSON_VALUE,
-//            MediaType.MULTIPART_FORM_DATA_VALUE
-//    })
-////    public PlayerDto updatePlayer(@RequestPart("player") PlayerDto playerDto, @RequestParam("imagefile") Optional< MultipartFile>file) {
-////        return playerService.updatePlayer(playerDto, file);
-////    }
+
+    @PutMapping(value="/update", consumes = {
+            MediaType.APPLICATION_JSON_VALUE,
+            MediaType.MULTIPART_FORM_DATA_VALUE
+    })
+    public PlayerDto updatePlayer(@RequestPart("player") PlayerDto playerDto, @RequestParam(value= "imagefile", required = false)  MultipartFile file) {
+        return playerService.updatePlayer(playerDto, file);
+    }
 
     @PutMapping("/{id}/update/image")
     public void updatePlayerPicture(@PathVariable("id") Long id, @RequestParam("imagefile") MultipartFile file) {

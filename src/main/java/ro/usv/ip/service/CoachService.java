@@ -71,17 +71,18 @@ public class CoachService {
     }
 
     private CoachDto getCoachDto(MultipartFile file, Coach coach) {
-        try {
-            byte[] byteObjects = new byte[file.getBytes().length];
-            int i = 0;
-            for (byte b : file.getBytes()) {
-                byteObjects[i++] = b;
-            }
-            coach.setPhoto(byteObjects);
+        if (file != null)
+            try {
+                byte[] byteObjects = new byte[file.getBytes().length];
+                int i = 0;
+                for (byte b : file.getBytes()) {
+                    byteObjects[i++] = b;
+                }
+                coach.setPhoto(byteObjects);
 
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
         coach = coachRepository.save(coach);
         return CoachDto.from(coach);
     }

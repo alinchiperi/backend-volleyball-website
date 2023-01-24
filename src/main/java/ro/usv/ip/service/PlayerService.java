@@ -122,23 +122,25 @@ public class PlayerService {
         return PlayerDto.from(player);
     }
 
-    public PlayerDto updatePlayer(PlayerDto playerDto, MultipartFile file){
+    public PlayerDto updatePlayer(PlayerDto playerDto, MultipartFile file) {
         Player player = playerRepository.findById(playerDto.getId()).orElseThrow(() -> new PlayerNotFoundException(playerDto.getId()));
         playerForSave(playerDto, player);
         //This is for profile picture.
-        try {
-            byte[] byteObjects = new byte[file.getBytes().length];
-            int i = 0;
-            for (byte b : file.getBytes()) {
-                byteObjects[i++] = b;
+        if (file != null)
+            try {
+                byte[] byteObjects = new byte[file.getBytes().length];
+                int i = 0;
+                for (byte b : file.getBytes()) {
+                    byteObjects[i++] = b;
+                }
+                player.setPhoto(byteObjects);
+            } catch (IOException e) {
+                throw new RuntimeException(e);
             }
-            player.setPhoto(byteObjects);
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-        player= playerRepository.save(player);
+        player = playerRepository.save(player);
         return PlayerDto.from(player);
     }
+
     public PlayerDto findPlayerById(Long id) {
         Player player = playerRepository.findById(id).orElseThrow(() -> new PlayerNotFoundException(id));
         return PlayerDto.from(player);
@@ -195,14 +197,14 @@ public class PlayerService {
         return PlayerStatisticDto.from(playerStatistic);
     }
 
-    public PlayerDetailsDto getAllPlayerData(Long playerId){
-        Player player = playerRepository.findById(playerId).orElseThrow(()->new PlayerNotFoundException(playerId));
+    public PlayerDetailsDto getAllPlayerData(Long playerId) {
+        Player player = playerRepository.findById(playerId).orElseThrow(() -> new PlayerNotFoundException(playerId));
         List<PlayerStatistic> playerStatistics = playerStatisticRepository.findByPlayerIdOrderBySeasonStartDesc(playerId);
 
         PlayerStatistic playerStatistic = playerStatistics.get(0);
-        if(playerStatistic == null){
+        if (playerStatistic == null) {
             throw new RuntimeException("This player have not statistics");
-        }else {
+        } else {
 
             return PlayerDetailsDto.from(player, playerStatistic);
 
