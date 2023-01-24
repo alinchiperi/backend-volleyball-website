@@ -28,8 +28,8 @@ public class TeamService {
 
     public TeamDto createTeam(TeamDto teamDto, MultipartFile file) {
         Team team = new Team();
-        team.setLocation(team.getLocation());
-        team.setName(team.getName());
+        team.setLocation(teamDto.getLocation());
+        team.setName(teamDto.getName());
         try {
             byte[] byteObjects = new byte[file.getBytes().length];
             int i = 0;

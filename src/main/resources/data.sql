@@ -79,7 +79,7 @@ VALUES ('Andrei', 'Curic', 173, 73, 15, 'Extrema', 'roman', '2004-05-02',
 INSERT INTO player(first_name, last_name, height, weight, shirt_number, position, nationality, dob, photo, category,
                    title, description)
 VALUES ('Alexandru', 'Andrusca', 183, 83, 16, 'Extrema', 'roman', '2004-05-02',
-        FILE_READ('src/main/resources/images/players/16_ANDRUSCA_Alexandru.jpg'), 'Prima Echipa',
+        FILE_READ('src/main/resources/images/players/16_ANDRUSCA_Alexandru.png'), 'Prima Echipa',
         'Egestas tellus rutrum tellus pellentesque',
         'Sagittis aliquam malesuada bibendum arcu vitae elementum curabitur vitae nunc sed velit dignissim sodales ut eu sem integer vitae justo eget magna fermentum iaculis eu non diam phasellus vestibulum lorem sed risus ultricies tristique nulla aliquet enim tortor at auctor urna nunc id cursus metus aliquam eleifend mi in nulla posuere sollicitudin aliquam ultrices sagittis orci a scelerisque purus semper');
 
@@ -118,11 +118,11 @@ VALUES (14, 13, 33, 34, '2022', '2023');
 
 --coach
 INSERT INTO coach(first_name, last_name, photo, role, dob, description, title, nationality)
-VALUES ('Tudor', 'Orasanu', FILE_READ('src/main/resources/images/coach/1-Tudor.jpg'), 'antrenor', '1983-03-06',
+VALUES ('Tudor', 'Orasanu', FILE_READ('src/main/resources/images/coach/1-Tudor.png'), 'antrenor', '1983-03-06',
         'Vitae semper quis lectus nulla at volutpat diam ut venenatis tellus in metus vulputate eu scelerisque felis imperdiet proin fermentum leo vel orci porta non pulvinar neque laoreet suspendisse interdum consectetur libero id faucibus nisl tincidunt eget nullam non nisi est sit amet facilisis magna etiam tempor orci eu lobortis elementum nibh tellus molestie nunc non blandit massa enim nec',
         'Ut sem nulla pharetra diam', 'romana');
 INSERT INTO coach(first_name, last_name, photo, role, dob, description, title, nationality)
-VALUES ('Vasile', 'Mosuc', FILE_READ('src/main/resources/images/coach/2-Vasile.jpg'), 'antrenor', '1978-06-03',
+VALUES ('Vasile', 'Mosuc', FILE_READ('src/main/resources/images/coach/2-Vasile.png'), 'antrenor', '1978-06-03',
         'Leo in vitae turpis massa sed elementum tempus egestas sed sed risus pretium quam vulputate dignissim suspendisse in est ante in nibh mauris cursus mattis molestie a iaculis at erat pellentesque adipiscing commodo elit at imperdiet dui accumsan sit amet nulla facilisi morbi tempus iaculis urna id volutpat lacus laoreet non curabitur gravida arcu ac tortor dignissim convallis aenean et',
         'In massa tempor nec feugiat', 'romana');
 
@@ -164,10 +164,30 @@ values ('Csm Campioana', 'Echipa de volei a Sucevei a castigat campionatul', 'Al
 INSERT INTO post_tag(post_id, tag_id)
 values (1, 1);
 
-INSERT INTO team(name, logo)
-values ('CSM Suceva', FILE_READ('src/main/resources/images/teams/logo_CSM.png'));
-INSERT INTO team(name, logo)
-values ('CSM Falticeni ', FILE_READ('src/main/resources/images/teams/logo_CSM.png'));
+INSERT INTO team(name, logo, location)
+values ('CSM Suceava', FILE_READ('src/main/resources/images/teams/logo_csm.png'),'Suceava');
+INSERT INTO team(name, logo, location)
+values ('CS Stiinta Exploarari Baia Mare', FILE_READ('src/main/resources/images/teams/baia_mare.png'),'Baia Mare');
+INSERT INTO team(name, logo, location)
+values ('CS Dinamo Bucuresti ', FILE_READ('src/main/resources/images/teams/dinamo.png'),'Bucuresti');
+INSERT INTO team(name, logo, location)
+values ('CS Rapid Bucuresti', FILE_READ('src/main/resources/images/teams/rapid.png'),'Bucuresti');
+INSERT INTO team(name, logo, location)
+values ('CS Arcada Galati', FILE_READ('src/main/resources/images/teams/arcada.png'),'Galati');
+INSERT INTO team(name, logo, location)
+values ('CSM Constanta', FILE_READ('src/main/resources/images/teams/constanta.png'),'Constanta');
+INSERT INTO team(name, logo, location)
+values ('CSM Craiova', FILE_READ('src/main/resources/images/teams/craiova.png'),'Craiova');
+INSERT INTO team(name, logo, location)
+values ('CSM Zalau', FILE_READ('src/main/resources/images/teams/zalau.png'),'Zalau');
+INSERT INTO team(name, logo, location)
+values ('CS Steaua Bucuresti', FILE_READ('src/main/resources/images/teams/steaua.png'),'Bucuresti');
+INSERT INTO team(name, logo, location)
+values ('CS Stiinta Bucuresti', FILE_READ('src/main/resources/images/teams/stiinta.png'),'Bucuresti');
+INSERT INTO team(name, logo, location)
+values ('CS U Cluj', FILE_READ('src/main/resources/images/teams/cluj.png'),'Cluj');
+INSERT INTO team(name, logo, location)
+values ('CSM Unirea Dej', FILE_READ('src/main/resources/images/teams/unirea.png'),'Dej');
 
 --pass: parola123
 INSERT INTO administrator(first_name, last_name, role, email, password)

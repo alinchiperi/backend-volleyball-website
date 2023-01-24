@@ -1,6 +1,7 @@
 package ro.usv.ip.controller;
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -25,7 +26,10 @@ public class TeamController {
         return ResponseEntity.ok().body(teamService.getAllTeams());
     }
 
-    @PostMapping("/create")
+    @PostMapping(value = "/create", consumes = {
+            MediaType.APPLICATION_JSON_VALUE,
+            MediaType.MULTIPART_FORM_DATA_VALUE
+    })
     private ResponseEntity<TeamDto> createTeam(@RequestPart("team") TeamDto teamDto, @RequestPart("imagefile") MultipartFile file ){
         return ResponseEntity.ok().body(teamService.createTeam(teamDto, file));
     }
