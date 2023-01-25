@@ -204,15 +204,22 @@ VALUES ('Alin', 'Orobet', 'CONTENT_CREATOR', 'orobetalin@gmail.com',
 INSERT INTO Game (home_team_id, away_team_id, date, location, home_team_score, away_team_score)
     VALUES (11, 2, '2023-01-21T12:00:00', 'Cluj-Napoca', 3, 0);
 INSERT INTO Game (home_team_id, away_team_id, date, location, home_team_score, away_team_score)
-VALUES (1, 7, '2023-01-28T12:00:00', 'Suceava', 0, 0);
+VALUES (1, 7, '2023-01-27T12:00:00', 'Suceava', 0, 0);
 INSERT INTO Game (home_team_id, away_team_id, date, location, home_team_score, away_team_score)
-    VALUES (2, 1, '2023-01-28T14:00:00', 'Baia-Mare', 0, 0);
+    VALUES (2, 1, '2023-02-03T14:00:00', 'Baia-Mare', 0, 0);
 INSERT INTO Game (home_team_id, away_team_id, date, location, home_team_score, away_team_score)
-    VALUES (1, 7, '2023-01-28T12:00:00', 'Suceava', 0, 0);
+    VALUES (1, 7, '2023-02-10T12:00:00', 'Suceava', 0, 0);
 INSERT INTO Game (home_team_id, away_team_id, date, location, home_team_score, away_team_score)
-    VALUES (9, 1, '2022-12-17T17:00:00', 'Bucuresti', 0, 0);
+    VALUES (9, 1, '2023-02-17T17:00:00', 'Bucuresti', 0, 0);
 INSERT INTO Game (home_team_id, away_team_id, date, location, home_team_score, away_team_score)
-VALUES (1, 6, '2022-12-28T12:00:00', 'Suceava', 0, 0);
-
+VALUES (1, 6, '2023-02-24T12:00:00', 'Suceava', 0, 0);
+INSERT INTO Game (home_team_id, away_team_id, date, location, home_team_score, away_team_score)
+VALUES (1, 3, '2023-03-03T15:00:00', 'Suceava', 0, 0);
+INSERT INTO Game (home_team_id, away_team_id, date, location, home_team_score, away_team_score)
+VALUES (3, 1, '2023-03-10T15:00:00', 'Bucuresti', 0, 0);
+INSERT INTO Game (home_team_id, away_team_id, date, location, home_team_score, away_team_score)
+VALUES (1, 8, '2023-03-17T10:00:00', 'Suceava', 0, 0);
+INSERT INTO Game (home_team_id, away_team_id, date, location, home_team_score, away_team_score)
+VALUES (8, 1, '2023-03-24T15:00:00', 'Zalau', 0, 0);
 
 
