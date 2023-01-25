@@ -167,9 +167,9 @@ values (1, 1);
 INSERT INTO team(name, logo, location)
 values ('CSM Suceava', FILE_READ('src/main/resources/images/teams/logo_csm.png'),'Suceava');
 INSERT INTO team(name, logo, location)
-values ('CS Stiinta Exploarari Baia Mare', FILE_READ('src/main/resources/images/teams/baia_mare.png'),'Baia Mare');
+values ('CS Stiinta Exploarari', FILE_READ('src/main/resources/images/teams/baia_mare.png'),'Baia Mare');
 INSERT INTO team(name, logo, location)
-values ('CS Dinamo Bucuresti ', FILE_READ('src/main/resources/images/teams/dinamo.png'),'Bucuresti');
+values ('CS Dinamo Bucuresti', FILE_READ('src/main/resources/images/teams/dinamo.png'),'Bucuresti');
 INSERT INTO team(name, logo, location)
 values ('CS Rapid Bucuresti', FILE_READ('src/main/resources/images/teams/rapid.png'),'Bucuresti');
 INSERT INTO team(name, logo, location)
@@ -197,7 +197,22 @@ INSERT INTO administrator(first_name, last_name, role, email, password)
 VALUES ('Alin', 'Orobet', 'CONTENT_CREATOR', 'orobetalin@gmail.com',
         '$2a$12$zXIMmX5ICmeU6jNnzeHR7eCW7gMuysuj.zSUMbaDmQa8NufBd1qEK');
 
+--Games
 
+--"U" Cluj vs CSM Suceava
+
+INSERT INTO Game (home_team_id, away_team_id, date, location, home_team_score, away_team_score)
+    VALUES (11, 2, '2023-01-21T12:00:00', 'Cluj-Napoca', 3, 0);
+INSERT INTO Game (home_team_id, away_team_id, date, location, home_team_score, away_team_score)
+VALUES (1, 7, '2023-01-28T12:00:00', 'Suceava', 0, 0);
+INSERT INTO Game (home_team_id, away_team_id, date, location, home_team_score, away_team_score)
+    VALUES (2, 1, '2023-01-28T14:00:00', 'Baia-Mare', 0, 0);
+INSERT INTO Game (home_team_id, away_team_id, date, location, home_team_score, away_team_score)
+    VALUES (1, 7, '2023-01-28T12:00:00', 'Suceava', 0, 0);
+INSERT INTO Game (home_team_id, away_team_id, date, location, home_team_score, away_team_score)
+    VALUES (9, 1, '2022-12-17T17:00:00', 'Bucuresti', 0, 0);
+INSERT INTO Game (home_team_id, away_team_id, date, location, home_team_score, away_team_score)
+VALUES (1, 6, '2022-12-28T12:00:00', 'Suceava', 0, 0);
 
 
 
