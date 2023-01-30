@@ -156,10 +156,48 @@ INSERT INTO tag (name)
 values ('Suceava');
 
 --post
-INSERT INTO post(title, under_title, created_by, content, created_on)
-values ('Csm Campioana', 'Echipa de volei a Sucevei a castigat campionatul', 'Alin Chiperi',
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Eget est lorem ipsum dolor sit. Tortor id aliquet lectus proin.',
-        '2022-12-21');
+INSERT INTO post(title, under_title, created_by, content, created_on, link ,posted_on)
+values ('CSM Suceava, la cea de-a doua deplasare consecutivă în Ardeal', 'Volei masculin – Divizia A1.', 'Suceava news',
+        'Runda a XIII-a a Diviziei A1 de volei masculin programează pentru echipa CSM Suceava a doua deplasare consecutivă în Ardeal. Meciul va avea loc sâmbătă. Dacă la primul meci din acest an sucevenii au jucat la Baia Mare, de această dată ei se vor deplasa la Cluj-Napoca pentru jocul de sâmbătă cu formația universitară.    Atmosfera în cadrul echipei pregătite de Tudor Orășanu și Vasile Moșuc nu este una prea roză, formația trăind efectiv de pe o zi pe alta. Trebuie de menționat faptul că regulamentul primului eșalon valoric din volei este destul de dur, o neprezentare atrăgând excluderea din campionat, precum și penalizarea cu doi ani de neparticipare în viitoarele competiții ale FRVolei.       ”Știu că am pierdut clar la Baia Mare, dar am întâlnit o echipă mult mai experimentată de cât a noastră. Acum mergem la Cluj, avem lotul complet, ne-am pregătit, dar ne descurcăm extrem de greu fără susținere. Oricum ar fi, noi vom încerca să participăm în competiție atât cât se va putea și vom încerca să jucăm până la capăt” a spus antrenorul Tudor Orășanu.',
+        '2023-01-19','https://img.svnews.ro/foto/2023/01/24/326775/5635b09fc3cbfd9d8623491ee06500325.jpg', '2023-01-19' );
+
+INSERT INTO post(title, under_title, created_by, content, created_on, link ,posted_on)
+values ('CSM Suceava a început anul cu o înfrângere dură acest an', 'Volei masculin – Divizia A1.', 'Suceava news',
+        'În cadrul etapei a XII-a a Diviziei A1 de volei masculin, prima din retur, echipa CSM Suceava a evoluat la finele săptămânii trecute pe terenul grupării Explorări Baia Mare. Formația pregătită de Tudor Orășanu și Vasile Moșuc a suferit cea mai dură înfrângere din acest sezon competițional, fiind învinsă cu 3-0, la 12, în primele două seturi și la 14 în ultimul.    Fără veteranul Marius Gontariu, cel mai bun jucător din prima parte a campionatului, echipa suceveană nu a mișcat practic în fața maramureșenilor care au aliniat un lot deosebit de experimentat față de cel al oaspeților. Pentru CSM Suceava au jucat Sasu, Roman, Tofan, Curic, Pop, Cr.Ciobotariu, C.Ciobatariu, Boghean, Andrușcă.       În etapa a XIII-a, CSM Suceava va juca din nou în deplasare pe terenul echipei U Cluj, singura pe care a învins-o în acest sezon competițional. De menționat faptul că în săptămâna precedentă formația suceveană a disputat două partide amicale cu naționala U 18 a Ucrainei.',
+        '2023-01-15','https://img.svnews.ro/foto/2023/01/24/326775/5635b09fc3cbfd9d8623491ee06500325.jpg', '2023-01-15' );
+
+INSERT INTO post(title, under_title, created_by, content, created_on, link ,posted_on)
+values ('CSM Suceava, din nou în acțiune', 'Volei masculin – Divizia A1.', 'Suceava news',
+        'Echipa de volei masculin CSM Suceava, proaspăt promovată în Divizia A1, a avut un început de campionat dificil în care a trecut prin aproximativ toate stările emoționale. A fost un contact dur cu formațiile de top din România, după ce tinerii sportivi suceveni au jucat la un nivel de ”cartier”.    După succesul cu U Cluj și partidele bune cu Arcada Galați și Dinamo, campioana și vicecampioana României, sucevenii au fost readuși cu picioarele pe pământ de Știința București, grupare fără punct în campionat.       ”Sportivii noștri au atacat cu prea mare avânt jocul cu Știința București și nu a mers. Trebuie mai multă concentrare și mai puțin avânt cu oricine am juca. Mai este mult până departe și jucătorii noștri trebuie să facă pași mici pentru victorie. Încrederea în forțele proprii este un lucru grozav, dar trebuie să și poți. Sunt convins că au învățat din meciul cu bucureștenii ”deștepți” și vor trata fiecare dispută cum se cuvine” a declarat antrenorul echipei CSM Suceava, Tudor Orășanu. În cadrul etapei a X-a, CSM Suceava va primi sâmbătă 10 decembrie vizita echipei Tomis Constanța, de la ora 12.00',
+            '2023-01-15','https://img.svnews.ro/foto/2023/01/24/326775/5635b09fc3cbfd9d8623491ee06500325.jpg', '2023-01-15' );
+
+INSERT INTO post(title, under_title, created_by, content, created_on, link ,posted_on)
+values ('CSM Suceava, din nou în acțiune', 'Volei masculin – Divizia A1.', 'Suceava news',
+        'Echipa de volei masculin CSM Suceava, proaspăt promovată în Divizia A1, a avut un început de campionat dificil în care a trecut prin aproximativ toate stările emoționale. A fost un contact dur cu formațiile de top din România, după ce tinerii sportivi suceveni au jucat la un nivel de ”cartier”.    După succesul cu U Cluj și partidele bune cu Arcada Galați și Dinamo, campioana și vicecampioana României, sucevenii au fost readuși cu picioarele pe pământ de Știința București, grupare fără punct în campionat.       ”Sportivii noștri au atacat cu prea mare avânt jocul cu Știința București și nu a mers. Trebuie mai multă concentrare și mai puțin avânt cu oricine am juca. Mai este mult până departe și jucătorii noștri trebuie să facă pași mici pentru victorie. Încrederea în forțele proprii este un lucru grozav, dar trebuie să și poți. Sunt convins că au învățat din meciul cu bucureștenii ”deștepți” și vor trata fiecare dispută cum se cuvine” a declarat antrenorul echipei CSM Suceava, Tudor Orășanu. În cadrul etapei a X-a, CSM Suceava va primi sâmbătă 10 decembrie vizita echipei Tomis Constanța, de la ora 12.00',
+        '2022-01-05','https://img.svnews.ro/foto/2022/12/07/321737/6c84cdc122fd99f1f4555bb8106500325.jpg', '2023-01-05' );
+
+INSERT INTO post(title, under_title, created_by, content, created_on, link ,posted_on)
+values ('CSM Suceava vrea să facă un meci bun în compania celor de la Tomis Constanța, în extrasezon', 'Volei masculin – Divizia A1.', 'Suceava news',
+        'Echipa de volei masculin CSM Suceava, proaspăt promovată în Divizia A1, a avut un început de campionat dificil în care a trecut prin aproximativ toate stările emoționale. A fost un contact dur cu formațiile de top din România, după ce tinerii sportivi suceveni au jucat la un nivel de ”cartier”.    După succesul cu U Cluj și partidele bune cu Arcada Galați și Dinamo, campioana și vicecampioana României, sucevenii au fost readuși cu picioarele pe pământ de Știința București, grupare fără punct în campionat.       ”Sportivii noștri au atacat cu prea mare avânt jocul cu Știința București și nu a mers. Trebuie mai multă concentrare și mai puțin avânt cu oricine am juca. Mai este mult până departe și jucătorii noștri trebuie să facă pași mici pentru victorie. Încrederea în forțele proprii este un lucru grozav, dar trebuie să și poți. Sunt convins că au învățat din meciul cu bucureștenii ”deștepți” și vor trata fiecare dispută cum se cuvine” a declarat antrenorul echipei CSM Suceava, Tudor Orășanu. În cadrul etapei a X-a, CSM Suceava va primi sâmbătă 10 decembrie vizita echipei Tomis Constanța, de la ora 12.00',
+        '2022-12-07','https://img.svnews.ro/foto/2022/12/07/321737/6c84cdc122fd99f1f4555bb8106500325.jpg', '2023-12-07' );
+
+INSERT INTO post(title, under_title, created_by, content, created_on, link ,posted_on)
+values ('CSM Suceava, merge cu ”Steaua” la ultimul meci din turul campionatului, în extrasezon', 'Volei masculin – Divizia A1.', 'Suceava news',
+        'În ultimul joc din turul campionatului Diviziei A1 de volei masculin, CSM Suceava va juca sâmbătă 17 decembrie pe terenul grupării Steaua București. Gazdele care sunt favorite certe au prima șansă la victorie, tinerii jucători pregătiți de Tudor Orășanu fiind la acest meci, în mod normal, doar un fel de purtători de noroc.    La final de tur, noua promovată CSM Suceava a arătat un progres deosebit în condițiile în care are la dispoziție un lot extrem de tânăr și neexperimentat. Conducerea echipei sucevene nu a știut pe ce se poate baza foarte mult timp și a pierdut ”trenul” legat de ceva transferuri inspirate.       Dacă ne vom uita în clasament, CSM Suceava nu este ultima, dar are nevoie de sprijin pentru a progresa. Acest ultim meci din an de pe terenul echipei Steaua este unul de încasat, dar de jucat.       ”Vom întâlni din nou o formație de top. Nu putem să ne luptăm cu echipe care au o grămadă de jucători străini în lot, alături de jucători români de echipă națională. Am crescut în joc pe parcursul acestui tur de campionat și trebuie să ne luptăm la fiecare meci. Pentru tinerii noștri sportivi este o experiență grozavă, care poate fi unică” a declarat antrenorul formației CSM Suceava, Tudor Orășanu.',
+        '2022-12-14','https://img.svnews.ro/foto/2022/12/07/321737/6c84cdc122fd99f1f4555bb8106500325.jpg', '2023-12-14' );
+
+INSERT INTO post(title, under_title, created_by, content, created_on, link ,posted_on)
+values ('CSM Suceava, merge cu ”Steaua” la ultimul meci din turul campionatului, în extrasezon', 'Volei masculin – Divizia A1.', 'Suceava news',
+        'Animație în sala ”Dumitru Bernicu” din Suceava la meciul din cadrul etapei a XIV-a a Diviziei A1 de volei masculin dintre echipa locală CSM și SCMU Craiova. Așadar, semn bun că publicul iubitor de sport din Suceava vine și la volei pentru că tinerii trebuie ajutați și susținuți pentru a progresa.Oaspeții au pornit clar favoriți având o sumedenie de stranieri în lot, gazdele opunând aceeași tânără gardă, cu vreo două inserții experimentate, dar tot sucevene get-beget. Tinerii pregătiți de Tudor Orășanu și Vasile Moșuc s-au străduit din răsputeri, dar nu au putut face și o diferență pe tabela de scor. Oltenii au câștigat cu 3-0, la 18, 15 și 17, dar gazdele au avut și ele momentele lor.
+            ”Am jucat cu o echipă bună care a reușit în acest sezon competițional o victorie cu echipa turcă Fenerbahce, deci era clar cu cine ne luptăm. A fost un meci interesant în care ne-am străduit. Mergem înainte cum putem, am primit ajutor de unde nu ne așteptam și sper să încheiem sezonul cum se cuvine” a declarat antrenorul sucevenilor, Tudor Orășanu.',
+        '2023-01-29','https://img.svnews.ro/foto/2022/12/07/321737/6c84cdc122fd99f1f4555bb8106500325.jpg', '2023-01-29' );
+
+
+
+
+
+
+
 
 INSERT INTO post_tag(post_id, tag_id)
 values (1, 1);
@@ -199,12 +237,10 @@ VALUES ('Alin', 'Orobet', 'CONTENT_CREATOR', 'orobetalin@gmail.com',
 
 --Games
 
---"U" Cluj vs CSM Suceava
-
 INSERT INTO Game (home_team_id, away_team_id, date, location, home_team_score, away_team_score)
     VALUES (11, 2, '2023-01-21T12:00:00', 'Cluj-Napoca', 3, 0);
 INSERT INTO Game (home_team_id, away_team_id, date, location, home_team_score, away_team_score)
-VALUES (1, 7, '2023-01-27T12:00:00', 'Suceava', 0, 0);
+VALUES (1, 7, '2023-01-27T12:00:00', 'Suceava', 3, 0);
 INSERT INTO Game (home_team_id, away_team_id, date, location, home_team_score, away_team_score)
     VALUES (2, 1, '2023-02-03T14:00:00', 'Baia-Mare', 0, 0);
 INSERT INTO Game (home_team_id, away_team_id, date, location, home_team_score, away_team_score)
@@ -221,5 +257,8 @@ INSERT INTO Game (home_team_id, away_team_id, date, location, home_team_score, a
 VALUES (1, 8, '2023-03-17T10:00:00', 'Suceava', 0, 0);
 INSERT INTO Game (home_team_id, away_team_id, date, location, home_team_score, away_team_score)
 VALUES (8, 1, '2023-03-24T15:00:00', 'Zalau', 0, 0);
+
+INSERT INTO Game (home_team_id, away_team_id, date, location, home_team_score, away_team_score, link, link_federatie)
+VALUES (1, 12, '2023-02-01T15:00:00', 'Suceava', 0, 0, 'https://www.facebook.com/profile.php?id=100057298576344', 'https://frv-web.dataproject.com/MatchStatistics.aspx?mID=2207&ID=30&CID=65&PID=38&type=LegList');
 
 
