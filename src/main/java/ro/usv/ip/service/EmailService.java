@@ -58,16 +58,16 @@ public class EmailService {
     /**
      * method executed in each monday at 13:30 Bucharest time
      */
-//   @Scheduled(fixedRate = 1000)
+//@Scheduled(fixedRate = 1000)
     @Scheduled(cron = "0 30 13 * * MON", zone="Europe/Bucharest")
     public void sendNewsToSubscriber() {
         List<Subscriber> subscribers = subscriberRepository.findAll();
         List<Post> posts = postRepository.findAllOrderByCreatedOnAsc();
 
         Post lastPost =posts.get(0);
-        String link = "localhost:3000";
+        String link = "http://localhost:";
         String contextTitle = lastPost.getTitle();
-        String description = lastPost.getUnderTitle();
+        String description = lastPost.getUnderTitle() + "\n" + lastPost.getContent().substring(0,255) + "...";
 
         String subject = "Ultimele noutatiti ";
 
