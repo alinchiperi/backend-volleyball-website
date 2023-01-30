@@ -240,7 +240,7 @@ VALUES ('Alin', 'Orobet', 'CONTENT_CREATOR', 'orobetalin@gmail.com',
 INSERT INTO Game (home_team_id, away_team_id, date, location, home_team_score, away_team_score)
     VALUES (11, 2, '2023-01-21T12:00:00', 'Cluj-Napoca', 3, 0);
 INSERT INTO Game (home_team_id, away_team_id, date, location, home_team_score, away_team_score)
-VALUES (1, 7, '2023-01-27T12:00:00', 'Suceava', 3, 0);
+VALUES (1, 7, '2023-01-27T12:00:00', 'Suceava', 0, 3);
 INSERT INTO Game (home_team_id, away_team_id, date, location, home_team_score, away_team_score)
     VALUES (2, 1, '2023-02-03T14:00:00', 'Baia-Mare', 0, 0);
 INSERT INTO Game (home_team_id, away_team_id, date, location, home_team_score, away_team_score)
