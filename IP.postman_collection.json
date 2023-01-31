@@ -1,0 +1,1080 @@
+{
+	"info": {
+		"_postman_id": "84747ca3-41fc-4e25-9086-6d3f1f97a448",
+		"name": "IP",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "23154588"
+	},
+	"item": [
+		{
+			"name": "Player",
+			"item": [
+				{
+					"name": "Post Player",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "player",
+									"value": "{\"firstName\":\"Claudiu\",\n\"lastName\":\"Grigoriu\",\n\"height\":\"192\",\n\"weight\":\"105\",\n\"dob\":\"2004-02-19\",\n\"shirtNumber\":\"25\",\n\"category\":\"Juniori\",\n\"position\":\"Centru\",\n\"nationality\":\"romana\",\n\"photo\":\"\",\n\"description\":\"Cel mai nou jucator din echipa\",\n\"title\":\"Un nou jucator\"\n}",
+									"contentType": "application/json",
+									"type": "text"
+								},
+								{
+									"key": "imagefile",
+									"contentType": "multipart/form-data",
+									"type": "file",
+									"src": "/C:/Users/Alin Chiperi/Documents/poza.jpg"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/player/create",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"player",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete player",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/player/1/delete",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"player",
+								"1",
+								"delete"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Players",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/player/players",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"player",
+								"players"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Player body",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/player/update/body",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"player",
+								"update",
+								"body"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Player",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "player",
+									"value": "{\"id\":\"1\",\n\"firstName\":\"Claudiu\",\n\"lastName\":\"Grigoriu\",\n\"height\":\"192\",\n\"weight\":\"105\",\n\"dob\":\"2004-02-19\",\n\"shirtNumber\":\"25\",\n\"category\":\"Juniori\",\n\"position\":\"Centru\",\n\"nationality\":\"romana\",\n\"photo\":\"\",\n\"description\":\"Cel mai nou jucator din echipa\",\n\"title\":\"Un nou jucator\"\n}",
+									"contentType": "application/json",
+									"type": "text"
+								},
+								{
+									"key": "imagefile ",
+									"contentType": "multipart/form-data",
+									"type": "file",
+									"src": []
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/player/update",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"player",
+								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get player image",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/player/2/image",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"player",
+								"2",
+								"image"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update player image",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "imagefile",
+									"type": "file",
+									"src": "/C:/Users/Alin Chiperi/Documents/poza.jpg"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/player/2/update/image",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"player",
+								"2",
+								"update",
+								"image"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get player by id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/player/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"player",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get players by category",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/player/category?category=senior",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"player",
+								"category"
+							],
+							"query": [
+								{
+									"key": "category",
+									"value": "senior"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Post player statistic",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\r\n    \"aces\":10,\r\n    \"attacks\":20,\r\n    \"blocks\":30,\r\n    \"playerId\":1,\r\n    \"seasonStart\":\"2022\",\r\n    \"seasonStop\":\"2023\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/player/statistic",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"player",
+								"statistic"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Player satistic",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/player/statistic/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"player",
+								"statistic",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get all information from player",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/player/1/details",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"player",
+								"1",
+								"details"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Post",
+			"item": [
+				{
+					"name": "create a post",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "post",
+									"value": "{\n    \"title\": \"Csm Campioana\",\n    \"underTitle\":\"Echipa de volei a sucevei a castigat campionatul\",\n    \"createdBy\":\"Alin Chiperi\",\n    \"tags\": [\n        {\n            \"name\": \"CSM\"\n        },\n        {\n            \"name\": \"Campionat\"\n        }\n    ],\n  \"content\": \"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Eget est lorem ipsum dolor sit. Tortor id aliquet lectus proin. \",\n\"category\":\"Prima echipa\"\n}",
+									"contentType": "application/json",
+									"type": "text"
+								},
+								{
+									"key": "images",
+									"type": "file",
+									"src": [
+										"/C:/Users/Alin Chiperi/Documents/1.jpg",
+										"/C:/Users/Alin Chiperi/Documents/poza.jpg"
+									]
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/post/create",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"post",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update a post",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": 1,\r\n    \"title\": \"Csm Campioana europei\",\r\n    \"tags\": [\r\n        {\r\n            \"id\": 1,\r\n            \"name\": \"Csm\"\r\n        },\r\n        {\r\n            \"id\": 2,\r\n            \"name\": \"volei\"\r\n        },\r\n        {\r\n            \"id\": 3,\r\n            \"name\": \"Suceva\"\r\n        },\r\n         {\r\n            \"name\": \"USV\"\r\n        }\r\n    ],\r\n    \"createdOn\": \"2022-11-11T20:41:10\",\r\n    \"underTitle\": \"Echipa de volei a sucevei a castigat campionatul\",\r\n    \"content\": \"Lorem ipsum dolores sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Eget est lorem ipsum dolor sit. Tortor id aliquet lectus proin. \",\r\n    \"createdBy\": \"Alin-Ioan Chiperi\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/post/update",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"post",
+								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get all posts",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/post/posts",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"post",
+								"posts"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get post images by id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/post/2/images",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"post",
+								"2",
+								"images"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get post by id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/post/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"post",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get posts by tag name",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/post/posts/CSM",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"post",
+								"posts",
+								"CSM"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Coach",
+			"item": [
+				{
+					"name": "delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"firstName\": \"Ioan\",\r\n    \"lastName\": \"Chiperi\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/coach/2/delete",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"coach",
+								"2",
+								"delete"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Coach",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "coach",
+									"value": "{\n\"firstName\":\"Claudiu\",\n\"lastName\":\"Grigoriu\",\n\"photo\":\"\",\n\"role\":\"maestru\",\n\"dob\":\"1986-07-06\",\n\"description\":\"Cel mai tare maestru\"\n}\n",
+									"contentType": "application/json",
+									"type": "text"
+								},
+								{
+									"key": "imagefile",
+									"contentType": "multipart/form-data",
+									"type": "file",
+									"src": []
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/coach/create",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"coach",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get coach by id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/coach/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"coach",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get all coaches",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/coach/coaches",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"coach",
+								"coaches"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get coach image by id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/coach/1/image",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"coach",
+								"1",
+								"image"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update coach image by id",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "imagefile",
+									"type": "file",
+									"src": "/C:/Users/Alin Chiperi/Downloads/postare2.jpg"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/coach/1/update/image",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"coach",
+								"1",
+								"update",
+								"image"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update coach data",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\r\n    \"id\":1,\r\n    \"firstName\": \"Alin\",\r\n    \"lastName\": \"Chiperi\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/coach/update",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"coach",
+								"update"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Sponsor",
+			"item": [
+				{
+					"name": "Create Sponsor",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "sponsor",
+									"value": "{ \n  \"name\":  \"Assist Software\",\n  \"siteLink\": \"https://assist-software.net/\"\n\n}",
+									"contentType": "application/json",
+									"type": "text"
+								},
+								{
+									"key": "imagefile",
+									"contentType": "multipart/form-data",
+									"type": "file",
+									"src": "/C:/Users/Alin Chiperi/Documents/1.jpg"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/sponsor/create",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"sponsor",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/sponsor/1/delete",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"sponsor",
+								"1",
+								"delete"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get sponsor by id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/sponsor/3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"sponsor",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get all sponsors",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/sponsor/sponsors",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"sponsor",
+								"sponsors"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get sponsor logo",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/sponsor/2/logo",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"sponsor",
+								"2",
+								"logo"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Game",
+			"item": [
+				{
+					"name": "Post game",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"homeTeamId\":1,\r\n    \"awayTeamId\":2,\r\n    \"date\":\"2023-02-03T12:00:00\",\r\n    \"location\":\"Suceava\",\r\n    \"homeTeamScore\":15,\r\n    \"awayTeamScore\":15,\r\n    \"link\":\"www.youtube.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/game/create",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"game",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get game details by id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/game/1/details",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"game",
+								"1",
+								"details"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Game",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\":1,\r\n    \"homeTeamId\":2,\r\n    \"awayTeamId\":1,\r\n    \"date\":\"2023-02-03T12:00:00\",\r\n    \"location\":\"Suceava\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/game/update",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"game",
+								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Game",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/game/1/delete",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"game",
+								"1",
+								"delete"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Team",
+			"item": [
+				{
+					"name": "Get All Team",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/team/teams",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"team",
+								"teams"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Subscriber",
+			"item": [
+				{
+					"name": "Add subscriber",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/subscriber/add/?email=chiperialin@yahoo.com",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"subscriber",
+								"add",
+								""
+							],
+							"query": [
+								{
+									"key": "email",
+									"value": "chiperialin@yahoo.com"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete subscriber",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/subscriber/delete?email=chiperialin@yahoo.com",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"subscriber",
+								"delete"
+							],
+							"query": [
+								{
+									"key": "email",
+									"value": "chiperialin@yahoo.com"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "auth",
+			"item": [
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "email",
+								"value": "chiperialin@gmail.com",
+								"type": "text"
+							},
+							{
+								"key": "password",
+								"value": "parola123",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\":\"chiperialin@gmail.com\",\r\n    \"password\":\"parola123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
