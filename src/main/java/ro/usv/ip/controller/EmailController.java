@@ -19,11 +19,19 @@ public class EmailController {
 
     private final EmailService emailService;
 
+    /**
+     * Send email to test for a user
+     * @param email
+     */
     @GetMapping("/news")
     public void sendNewsLetter(@RequestParam String email){
         emailService.sendFakeEmail(email);
     }
 
+    /**
+     * Send a email to a Contact
+     * @param contact Contact to sent
+     */
     @PostMapping("/contact")
     public void sendContactMessage(@RequestBody ContactDto contact){
         emailService.sendContactMessage(contact);

@@ -51,6 +51,12 @@ public class PostService {
     }
 
 
+    /**
+     * Create post for a specific tag
+     * @param title title of posts
+     * @param tags  list of tags
+     * @return  post created
+     */
     static Post postFor(String title, List<Tag> tags) {
         Post post = new Post();
         post.setTitle(title);
@@ -60,6 +66,11 @@ public class PostService {
         return post;
     }
 
+    /**
+     * Find post by tag name
+     * @param tagName tag name
+     * @return list of posts
+     */
     public List<PostDto> findPostByTagName(String tagName) {
         List<Post> posts = postRepository.findByTags_Name(tagName);
 
@@ -95,10 +106,19 @@ public class PostService {
         return PostDto.from(post);
     }
 
+    /**
+     * Method to change a list of post to postDto object
+     * @param posts list of posts
+     * @return  list of postDto
+     */
     static List<PostDto> changePostToDto(List<Post> posts) {
         return posts.stream().map(PostDto::from).collect(Collectors.toList());
     }
 
+    /**
+     * Method to return post in ascended order
+     * @return list of post
+     */
     public List<PostDto> getPostsOrderByDate() {
 
         List<Post> posts = postRepository.findAllOrderByCreatedOnAsc();
@@ -107,6 +127,11 @@ public class PostService {
 
     }
 
+    /**
+     * Method to save in database images of a post
+     * @param postId id of post
+     * @param files images to save
+     */
     public void saveImagesInDataBase(Long postId, MultipartFile[] files) {
         Post post = postRepository.findById(postId).orElseThrow(() -> new PostNotFoundException(postId));
 

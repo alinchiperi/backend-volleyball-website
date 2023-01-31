@@ -37,6 +37,11 @@ public class GameService {
         return createGameDetails(game);
     }
 
+    /**
+     * Create a game details object with all information about team
+     * @param game
+     * @return game details object
+     */
     private GameDetailsDto createGameDetails(Game game) {
         GameDetailsDto gameDetails = new GameDetailsDto();
         Team homeTeam = teamRepository.findById(game.getHomeTeamId()).orElseThrow(() -> new TeamNotFoundException(game.getHomeTeamId()));
@@ -84,6 +89,10 @@ public class GameService {
         return GameDto.from(newGame);
     }
 
+    /**
+     * Get all games with all details foe each game
+     * @return list of game details dto
+     */
     public List<GameDetailsDto> getAllGames() {
         List<GameDetailsDto> gameDetailsDtos = new ArrayList<>();
         List<Game> games = gameRepository.findAll();

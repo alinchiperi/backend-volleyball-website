@@ -31,6 +31,12 @@ import java.util.Optional;
 public class PlayerController {
     private final PlayerService playerService;
 
+    /**
+     * Add a player
+     * @param playerDto Player body
+     * @param file Profile Image
+     * @return Player added
+     */
     @PostMapping(value = "/create", consumes = {
             MediaType.APPLICATION_JSON_VALUE,
             MediaType.MULTIPART_FORM_DATA_VALUE
@@ -73,16 +79,30 @@ public class PlayerController {
         playerService.updateProfileImage(id, file);
     }
 
+    /**
+     * Return just profile image for a player
+     * @param id id for player
+     * @return image as byte array
+     */
     @GetMapping(value = "/{id}/image", produces = MediaType.IMAGE_JPEG_VALUE)
     public @ResponseBody byte[] getPlayerImage(@PathVariable Long id) {
         return playerService.getPlayerImage(id);
     }
 
+    /**
+     * Method to return all player for a specific category
+     * @param category players category
+     * @return A list with players
+     */
     @GetMapping("/category")
     public List<PlayerDto> getPlayersByCategory(@RequestParam String category) {
         return playerService.getPlayerByCategory(category);
     }
 
+    /**
+     * Post player statistic for a specific player
+     * @param playerStatisticDto player statistic body
+     */
     @PostMapping("/statistic")
     public void postPlayerStatistic(@RequestBody PlayerStatisticDto playerStatisticDto) {
         playerService.addPlayerStatistic(playerStatisticDto);
@@ -93,6 +113,11 @@ public class PlayerController {
         return ResponseEntity.ok().body(playerService.getPlayerStatistic(id));
     }
 
+    /**
+     * Get all information about a player
+     * @param id  player id
+     * @return ro.usv.ip.dto.PlayerDetailsDto
+     */
     @GetMapping("/{id}/details")
     public ResponseEntity<PlayerDetailsDto> getAllPlayerData(@PathVariable Long id) {
         return ResponseEntity.ok().body(playerService.getAllPlayerData(id));

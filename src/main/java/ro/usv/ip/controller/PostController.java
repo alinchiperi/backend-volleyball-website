@@ -41,6 +41,11 @@ public class PostController {
         postService.delete(id);
     }
 
+    /**
+     * Return a list of posts with a specific tag
+     * @param tagName   Tag name
+     * @return  List of posts
+     */
     @GetMapping("posts/{tagName}")
     public List<PostDto> findPostByTagName(@PathVariable("tagName") String tagName) {
         return postService.findPostByTagName(tagName);
@@ -61,6 +66,11 @@ public class PostController {
         return postService.getPostsOrderByDate();
     }
 
+    /**
+     * Return images of post
+     * @param postId    post id
+     * @return  a list of byte array with images
+     */
     @GetMapping( "/{postId}/images")
     public List<byte[]> getPostImage(@PathVariable Long postId) {
         return postService.getPostImages(postId);

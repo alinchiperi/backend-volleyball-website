@@ -28,6 +28,11 @@ public class TagService {
         return tagDtos.stream().map(this::toTag).collect(Collectors.toList());
     }
 
+    /**
+     * Transfer a tag to a tagDto
+     * @param tagDto a tagDto object
+     * @return a tag object
+     */
     private Tag toTag(TagDto tagDto) {
         Tag tag;
         Optional<Tag> tagFromName = tagRepository.findByName(tagDto.getName());

@@ -30,6 +30,11 @@ public class CoachController {
 
     private final CoachService coachService;
 
+    /**
+     * @param coachDto Coach to be added
+     * @param file      Profile image
+     * @return          Coach added
+     */
     @PostMapping(value = "/create", consumes = {
             MediaType.APPLICATION_JSON_VALUE,
             MediaType.MULTIPART_FORM_DATA_VALUE
@@ -38,6 +43,10 @@ public class CoachController {
         return coachService.addCoach(coachDto, file);
     }
 
+    /**
+     * Return all staff
+     * @return
+     */
     @GetMapping("/coaches")
     public List<CoachDto> getCoaches() {
         return coachService.getCoaches();
@@ -55,6 +64,11 @@ public class CoachController {
         return ResponseEntity.ok().body(coachService.getCoach(id));
     }
 
+    /**
+     * Update coach without profile picture
+     * @param coachDto
+     * @return
+     */
     @PutMapping("/update/body")
     public CoachDto updateCoach(@RequestBody CoachDto coachDto) {
         return coachService.updateCoachBody(coachDto);

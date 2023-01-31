@@ -56,7 +56,7 @@ public class EmailService {
     }
 
     /**
-     * method executed in each monday at 13:30 Bucharest time
+     * Method executed in each monday at 13:30 Bucharest time
      */
 //@Scheduled(fixedRate = 1000)
     @Scheduled(cron = "0 30 13 * * MON", zone="Europe/Bucharest")
@@ -82,6 +82,10 @@ public class EmailService {
         }
     }
 
+    /**
+     * Send an email in from contact page form
+     * @param contact ContactDto object
+     */
     public void sendContactMessage(ContactDto contact) {
         String email = "csm.volei.suceava@gmail.com";
         SimpleMailMessage mailMessage = new SimpleMailMessage();

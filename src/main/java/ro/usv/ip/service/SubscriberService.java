@@ -13,6 +13,11 @@ public class SubscriberService {
 
     private final SubscriberRepository subscriberRepository;
 
+    /**
+     * add a subscriber to database
+     * @param email subscriber email
+     * @return  a message
+     */
     public String addSubscriber(String email) {
         Optional<Subscriber> subscriber = subscriberRepository.findByEmail(email);
         if (subscriber.isPresent()) {
@@ -23,6 +28,11 @@ public class SubscriberService {
         }
     }
 
+    /**
+     * delete a subscriber
+     * @param email subscriber email
+     * @return a message
+     */
     public String deleteSubscriber(String email) {
         Optional<Subscriber> subscriber = subscriberRepository.findByEmail(email);
         if(subscriber.isPresent()){

@@ -32,6 +32,12 @@ public class GameController {
     public ResponseEntity<GameDto> addNewGame(@RequestBody  GameDto game){
         return ResponseEntity.ok().body(gameService.createNewGame(game));
     }
+
+    /**
+     * Get all details about a game
+     * @param id id for a game
+     * @return GameDetailsDto
+     */
     @GetMapping("/game/{id}/details")
     public ResponseEntity<GameDetailsDto> getGameDetails(@PathVariable Long id){
         return ResponseEntity.ok().body(gameService.getGameDetails(id));
