@@ -6,9 +6,11 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
+import ro.usv.ip.dto.PostCommentDto;
 import ro.usv.ip.dto.PostDto;
 import ro.usv.ip.exceptions.PostNotFoundException;
 import ro.usv.ip.model.Post;
+import ro.usv.ip.model.PostComment;
 import ro.usv.ip.model.PostImage;
 import ro.usv.ip.model.Tag;
 import ro.usv.ip.repository.PostImageRepository;
@@ -17,7 +19,6 @@ import ro.usv.ip.repository.PostRepository;
 import java.io.IOException;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -171,6 +172,19 @@ public class PostService {
         }
 
         return images;
+    }
+
+    public void addComment(Long postId, PostCommentDto postCommentDto) {
+        Post post = postRepository.findById(postId).orElseThrow(()-> new PostNotFoundException(postId));
+        PostComment postComment = commentFrom(postCommentDto);
+        postComment.setPost(post);
+        post.getComments().add(postComment);
+        postRepository.save(post);
+    }
+
+    private PostComment commentFrom(PostCommentDto postCommentDto){
+        return new PostComment(postCommentDto.getCreatedBy(), postCommentDto.getContent());
+
     }
 
 
