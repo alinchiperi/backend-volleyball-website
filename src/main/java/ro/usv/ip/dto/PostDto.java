@@ -3,6 +3,7 @@ package ro.usv.ip.dto;
 import lombok.Builder;
 import lombok.Data;
 import ro.usv.ip.model.Post;
+import ro.usv.ip.model.PostComment;
 
 import java.time.LocalDateTime;
 import java.util.List;
@@ -21,6 +22,7 @@ public class PostDto {
     private String createdBy;
     private String link;
     private String category;
+    private List<PostCommentDto> comments;
 
     public static PostDto from(Post post) {
         return PostDto.builder()
@@ -35,6 +37,9 @@ public class PostDto {
                 .createdBy(post.getCreatedBy())
                 .link(post.getLink())
                 .category(post.getCategory())
+                .comments(post.getComments().stream()
+                        .map(PostCommentDto::from)
+                        .collect(Collectors.toList()))
                 .build();
     }
 }

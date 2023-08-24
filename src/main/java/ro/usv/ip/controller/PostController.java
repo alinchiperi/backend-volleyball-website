@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RequestPart;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
+import ro.usv.ip.dto.PostCommentDto;
 import ro.usv.ip.dto.PostDto;
 import ro.usv.ip.service.PostService;
 
@@ -74,5 +75,10 @@ public class PostController {
     @GetMapping( "/{postId}/images")
     public List<byte[]> getPostImage(@PathVariable Long postId) {
         return postService.getPostImages(postId);
+    }
+
+    @PostMapping("{postId}/comment/add")
+    public void addComment(@PathVariable Long postId, @RequestBody PostCommentDto postCommentDto){
+        postService.addComment(postId, postCommentDto);
     }
 }
