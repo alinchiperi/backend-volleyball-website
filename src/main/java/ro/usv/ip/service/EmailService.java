@@ -39,7 +39,7 @@ public class EmailService {
         }
     }
 
-    private void sendEmailWithDetails(String link, String contextTitle, String description, String template, String sendTo, String subject) throws MessagingException {
+    public void sendEmailWithDetails(String link, String contextTitle, String description, String template, String sendTo, String subject) throws MessagingException {
         Context context = new Context();
         context.setVariable("title", contextTitle);
         context.setVariable("link", link);
@@ -59,15 +59,19 @@ public class EmailService {
      * Method executed in each monday at 13:30 Bucharest time
      */
 //@Scheduled(fixedRate = 1000)
-    @Scheduled(cron = "0 30 13 * * MON", zone="Europe/Bucharest")
+    @Scheduled(cron = "0 30 13 * * MON", zone = "Europe/Bucharest")
     public void sendNewsToSubscriber() {
         List<Subscriber> subscribers = subscriberRepository.findAll();
         List<Post> posts = postRepository.findAllOrderByCreatedOnAsc();
 
-        Post lastPost =posts.get(0);
+        Post lastPost = posts.get(0);
         String link = "http://localhost:";
         String contextTitle = lastPost.getTitle();
-        String description = lastPost.getUnderTitle() + "\n" + lastPost.getContent().substring(0,255) + "...";
+        String description = lastPost.getUnderTitle() + "\n";
+        if (lastPost.getContent().length() > 255)
+            description += lastPost.getContent().substring(0, 255) + "...";
+        else
+            description += lastPost.getContent();
 
         String subject = "Ultimele noutatiti ";
 
@@ -75,7 +79,7 @@ public class EmailService {
             for (Subscriber subs :
                     subscribers) {
 
-            sendEmailWithDetails(link, contextTitle, description, "template", subs.getEmail(), subject);
+                sendEmailWithDetails(link, contextTitle, description, "template", subs.getEmail(), subject);
             }
         } catch (MessagingException e) {
             throw new RuntimeException(e);
@@ -84,6 +88,7 @@ public class EmailService {
 
     /**
      * Send an email in from contact page form
+     *
      * @param contact ContactDto object
      */
     public void sendContactMessage(ContactDto contact) {
@@ -94,10 +99,11 @@ public class EmailService {
         mailMessage.setText(contact.getMessage());
         javaMailSender.send(mailMessage);
 
-        if(contact.isCheckboxCopy()){
+        if (contact.isCheckboxCopy()) {
             mailMessage.setTo(contact.getEmail());
             javaMailSender.send(mailMessage);
         }
 
     }
+
 }

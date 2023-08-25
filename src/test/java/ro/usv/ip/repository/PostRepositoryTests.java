@@ -25,7 +25,7 @@ public class PostRepositoryTests {
     private PostRepository postRepository;
 
     private Post postOnCsm;
-    private Post postOnSuceva;
+    private Post postOnSuceava;
 
     @BeforeEach
     public void setUp() {
@@ -35,8 +35,8 @@ public class PostRepositoryTests {
         postOnCsm = createPost("Alin", "Csm campioana", csm, suceava);
         entityManager.persist(postOnCsm);
 
-        postOnSuceva = createPost("Stefan","Sucevava", suceava);
-        entityManager.persist(postOnSuceva);
+        postOnSuceava = createPost("Stefan","Sucevava", suceava);
+        entityManager.persist(postOnSuceava);
 
     }
 
@@ -51,7 +51,7 @@ public class PostRepositoryTests {
     returnBothRecords_WhenFindByTags_Name_Suceava() {
         List<Post> results = postRepository.findByTags_Name("suceava");
 
-        assertThat(results).containsExactly(postOnCsm, postOnSuceva);
+        assertThat(results).containsExactly(postOnCsm, postOnSuceava);
     }
 
     private Post createPost(String user, String message, Tag... tags) {
